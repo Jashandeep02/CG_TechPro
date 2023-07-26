@@ -11732,23 +11732,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\": {},
+    "C:\\Users\\Harleen.Chadha\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Project\\final\\final.csproj",
+      "projectUniqueName": "C:\\Users\\Harleen.Chadha\\Desktop\\cgtechprofinal\\CG_TechPro\\final.csproj",
       "projectName": "final",
-      "projectPath": "d:\\Project\\final\\final.csproj",
-      "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-      "outputPath": "d:\\Project\\final\\obj\\",
+      "projectPath": "C:\\Users\\Harleen.Chadha\\Desktop\\cgtechprofinal\\CG_TechPro\\final.csproj",
+      "packagesPath": "C:\\Users\\Harleen.Chadha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Harleen.Chadha\\Desktop\\cgtechprofinal\\CG_TechPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jashandeep.Singla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Harleen.Chadha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11756,7 +11756,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11827,7 +11827,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }

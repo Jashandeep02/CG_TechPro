@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "User Page";
+}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .centered-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f7f7f7; 
+        margin-bottom: 5%;/* Optional background color */
+    }
+
+    h1, h4, button {
+        text-align: center; /* Center the text horizontally */
+    }
+
+    h1 {
+        color: rgb(2, 2, 73);
+        font-size: 50px;
+        transition: transform 1s ease; /* Add a transition for the zoom-out effect */
+    }
+
+    h4 {
+        color: rgb(2, 2, 73);
+        font-size: 24px;
+        margin-bottom: 20px;
+        transition: transform 1s ease; /* Add a transition for the zoom-out effect */
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Zoom-out effect on landing */
+
+    /* Apply the zoom-out animation on h1 and h4 */
+    h1.zoom-out, h4.zoom-out {
+        animation: zoomOut 1s ease;
+    }
+    .btn{
+        background: rgb(255, 174, 0);
+    }
+</style>
+
+
+<body>
+    <div class="centered-container">
+        <h1 class="zoom-out">Welcome to CGTechPro</h1>
+        <h4 class="zoom-out">Your very own IT assistant</h4>
+        <button class="btn">Show my devices</button>
+    </div>
+</body>
