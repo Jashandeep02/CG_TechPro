@@ -1,0 +1,196 @@
+
+<style>
+    .container{
+    display: flex;
+    justify-content: center;
+   
+}
+.card{
+    margin: 0.5%;
+    
+}
+.Add{
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 3%;
+    color: rgb(2,2,73);
+  }
+ 
+
+  /* Style for the input box */
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black; /* Adding the light gray line at the bottom */
+    padding: 5px;
+
+  }
+
+  /* Style for the heading */
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  /* Style for the button */
+  .button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: rgb(255,174,0
+    );
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .AssignDevice {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10%;
+  }
+  .cardAd{
+border:0px;
+  }
+
+  .but{
+    background-color: rgb(255,174,0
+        );
+        background-color: rgb(255,174,0
+    );
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 15px;
+  }
+</style>
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
+
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-lg font-weight-bold text-dark text-uppercase mb-1">
+                            Add Device</div>
+                            <p class="card-text">To add a device into your system </p>
+                            <button type="button"  class="but">Click Me</button>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Assign Device</div>
+                               <p class="card-text">Assign an user a device from your system</p>
+                            <button type="button" class="but"(click)=showAssign()>Click Me</button>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Device Status
+                        </div>
+                          <p class="card-text">Check all your devices  in inventory</p>
+                        <button type="button" class="but">Click Me</button>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            User Status</div>
+                             <p class="card-text">check the status for the employees</p>
+                             <button type="button" class="but">Click Me</button>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container Add" *ngIf="!showADD" >
+  <h1 class="my-2">Add Device</h1>
+  <input type="text" class="input-box" placeholder="Enter device name">
+  <button class="button ">Add</button>
+</div>
+<div class="container-fluid px-1 py-5 mx-auto AssignDevice" *ngIf="!showAss" >
+  <div class="row d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+          <h1>Assign Device</h1>
+      
+          <div class="card  cardAd">
+              <h5 class="text-center mb-4"></h5>
+              <form class="form-card p-4" onsubmit="event.preventDefault()">
+                  <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" onblur="validate(1)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" onblur="validate(2)"> </div>
+                  </div>
+                  <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Type<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Device Type" onblur="validate(3)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Id<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="Enter Device Id" onblur="validate(4)"> </div>
+                  </div>
+                  <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" onblur="validate(3)"> </div>
+              
+                </div>
+                  
+                 
+                  <div class="row justify-content-center">
+                      <div class="form-group col-sm-6 m-5">  <button type="button" class="but">Assign Device</button> </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Project\\final\\final.csproj": {}
+    "C:\\Users\\sanchit.arora\\Desktop\\PROJECT\\CG_TechPro\\final.csproj": {}
   },
   "projects": {
-    "d:\\Project\\final\\final.csproj": {
+    "C:\\Users\\sanchit.arora\\Desktop\\PROJECT\\CG_TechPro\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Project\\final\\final.csproj",
+        "projectUniqueName": "C:\\Users\\sanchit.arora\\Desktop\\PROJECT\\CG_TechPro\\final.csproj",
         "projectName": "final",
-        "projectPath": "d:\\Project\\final\\final.csproj",
-        "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-        "outputPath": "d:\\Project\\final\\obj\\",
+        "projectPath": "C:\\Users\\sanchit.arora\\Desktop\\PROJECT\\CG_TechPro\\final.csproj",
+        "packagesPath": "C:\\Users\\sanchit.arora\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sanchit.arora\\Desktop\\PROJECT\\CG_TechPro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jashandeep.Singla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sanchit.arora\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
