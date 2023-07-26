@@ -48,31 +48,29 @@ namespace CG_TechPro.Controllers
                 return new JwtSecurityTokenHandler().WriteToken(token);
             }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
-         public IActionResult GetUser([FromBody]Users user)
+        [HttpPost]
+        public IActionResult Login([FromBody] Users user)
         {
             if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
             {
-                return View("Login");
+                return BadRequest("Username and password are required.");
             }
+
             string desiredDomain = "@cginfinity.com";
             if (!user.UserName.EndsWith(desiredDomain, StringComparison.OrdinalIgnoreCase))
             {
-                return View("InvalidDomainError");
+                return BadRequest("Invalid domain.");
             }
-            bool VerifyPass = BCrypt.Net.BCrypt.Verify(user.Password, BCrypt.Net.BCrypt.HashPassword(user.Password));
-            var users = _context.Users.FirstOrDefault(u => u.UserName == user.UserName);
-            if (user != null && VerifyPass)
+
+            var storedUser = _context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+            if (storedUser != null && BCrypt.Net.BCrypt.Verify(user.Password, BCrypt.Net.BCrypt.HashPassword(storedUser.Password)))
             {
-                var token = GenerateJwtToken(users);
+                var token = GenerateJwtToken(storedUser);
                 return Json(new { token });
             }
-            return View("Login");
+
+            return BadRequest("Invalid username or password.");
         }
+
     }
 }

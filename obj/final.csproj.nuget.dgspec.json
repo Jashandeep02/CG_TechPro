@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Project\\final\\final.csproj": {}
+    "D:\\Project\\final\\final.csproj": {}
   },
   "projects": {
-    "d:\\Project\\final\\final.csproj": {
+    "D:\\Project\\final\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Project\\final\\final.csproj",
+        "projectUniqueName": "D:\\Project\\final\\final.csproj",
         "projectName": "final",
-        "projectPath": "d:\\Project\\final\\final.csproj",
+        "projectPath": "D:\\Project\\final\\final.csproj",
         "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-        "outputPath": "d:\\Project\\final\\obj\\",
+        "outputPath": "D:\\Project\\final\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
