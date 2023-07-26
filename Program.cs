@@ -1,8 +1,13 @@
+using CG_TechPro.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<DataContext>(x => {
+    x.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"));
+});
 
 
 var app = builder.Build();
