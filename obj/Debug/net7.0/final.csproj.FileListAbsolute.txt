@@ -261,3 +261,6 @@ C:\Users\Harleen.Chadha\Desktop\cgtechprofinal\CG_TechPro\obj\Debug\net7.0\refin
 C:\Users\Harleen.Chadha\Desktop\cgtechprofinal\CG_TechPro\obj\Debug\net7.0\final.pdb
 C:\Users\Harleen.Chadha\Desktop\cgtechprofinal\CG_TechPro\obj\Debug\net7.0\final.genruntimeconfig.cache
 C:\Users\Harleen.Chadha\Desktop\cgtechprofinal\CG_TechPro\obj\Debug\net7.0\ref\final.dll
+C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\obj\Debug\net7.0\final.dll
+C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\obj\Debug\net7.0\refint\final.dll
+C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\obj\Debug\net7.0\final.pdb
