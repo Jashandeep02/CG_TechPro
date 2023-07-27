@@ -15,8 +15,9 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     color: rgb(2,2,73);
+    display:none;
   }
  
 
@@ -44,6 +45,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
   }
   .AssignDevice {
     display: block;
@@ -51,7 +53,8 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10%;
+   margin-bottom:3%;
+   display: none;
   }
   .cardAd{
 border:0px;
@@ -67,6 +70,29 @@ border:0px;
     border-radius: 5px;
     cursor: pointer;
     padding: 8px 15px;
+    width:100%;
+  }
+  .UserStatus{
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    color: rgb(2,2,73);
+    display:none;
+    
+  }
+  .DeviceStatus{
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 3%;
+    color: rgb(2,2,73);
+  
+
   }
 </style>
 <div class="container-fluid">
@@ -89,7 +115,7 @@ border:0px;
                           <div class="text-lg font-weight-bold text-dark text-uppercase mb-1">
                             Add Device</div>
                             <p class="card-text">To add a device into your system </p>
-                            <button type="button"  class="but">Click Me</button>
+                            <button type="button" onclick="showAddDevice()" class="but">Add Device</button>
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -107,7 +133,7 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             Assign Device</div>
                                <p class="card-text">Assign an user a device from your system</p>
-                            <button type="button" class="but"(click)=showAssign()>Click Me</button>
+                            <button type="button" class="but" onclick="showAssign()">Assign Device</button>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -126,7 +152,7 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Device Status
                         </div>
                           <p class="card-text">Check all your devices  in inventory</p>
-                        <button type="button" class="but">Click Me</button>
+                        <button type="button" class="but" onclick="DeviceStatus()">Check Status</button>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -145,7 +171,7 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             User Status</div>
                              <p class="card-text">check the status for the employees</p>
-                             <button type="button" class="but">Click Me</button>
+                             <button type="button" class="but">Check Status</button>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -157,12 +183,12 @@ border:0px;
 </div>
 </div>
 
-<div class="container Add" *ngIf="!showADD" >
+<div class="container Add" >
   <h1 class="my-2">Add Device</h1>
   <input type="text" class="input-box" placeholder="Enter device name">
   <button class="button ">Add</button>
 </div>
-<div class="container-fluid px-1 py-5 mx-auto AssignDevice" *ngIf="!showAss" >
+<div class="container-fluid px-1 py-5 mx-auto AssignDevice" >
   <div class="row d-flex justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
           <h1>Assign Device</h1>
@@ -192,7 +218,7 @@ border:0px;
       </div>
   </div>
 </div>
-<div class="container mt-5">
+<div class="container  UserStatus mb-5">
 
         <div class="row justify-content-center">
 
@@ -236,7 +262,7 @@ border:0px;
 
                 <div class="text-center">
 
-                    <button class="btn btn-dark but">Show Devices</button> <!-- Show Devices button -->
+                    <button class="but">Show Devices</button> <!-- Show Devices button -->
 
                 </div>
 
@@ -245,4 +271,77 @@ border:0px;
         </div>
 
     </div>
+    <div class="container DeviceStatus">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-6">
+
+                <h1 class="text-center mb-4">User Status</h1> <!-- Added mb-4 class for margin-bottom -->
+
+                <div class="input-group mb-3">
+
+                    <input type="text" class="form-control" placeholder="Enter UserId">
+
+                </div>
+
+                <div class="text-center">
+
+                    <button class="but">Show All Devices</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+  function showAddDevice() {
+  var addDeviceContainer = document.querySelector(".container.Add");
+  if (addDeviceContainer) {
+     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+    if (displayStyle === "none") {
+      // If the element is hidden, show it
+      addDeviceContainer.style.display = "block";
+    } else {
+      // If the element is visible, hide it
+      addDeviceContainer.style.display = "none";
+    }
+  } else {
+   addDeviceContainer.style.display = "none";
+  }
+}
+
+function showAssign() {
+  var addDeviceContainer = document.querySelector(".container-fluid.AssignDevice");
+  if (addDeviceContainer) {
+     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+    if (displayStyle === "none") {
+      // If the element is hidden, show it
+      addDeviceContainer.style.display = "block";
+    } else {
+      // If the element is visible, hide it
+      addDeviceContainer.style.display = "none";
+    }
+  } else {
+   addDeviceContainer.style.display = "none";
+  }
+}
+  function DeviceStatus() {
+  var addDeviceContainer = document.querySelector(".container.UserStatus");
+  if (addDeviceContainer) {
+     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+    if (displayStyle === "none") {
+      // If the element is hidden, show it
+      addDeviceContainer.style.display = "block";
+    } else {
+      // If the element is visible, hide it
+      addDeviceContainer.style.display = "none";
+    }
+  } else {
+   addDeviceContainer.style.display = "none";
+  }
+}
+    </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
