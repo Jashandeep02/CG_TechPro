@@ -18641,11 +18641,6 @@
   "RootNamespace": "final",
   "Documents": [
     {
-      "FilePath": "d:\\Project\\final\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Project\\final\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -18673,6 +18668,11 @@
     {
       "FilePath": "d:\\Project\\final\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\final\\Views\\Home\\User.cshtml",
+      "TargetPath": "Views\\Home\\User.cshtml",
       "FileKind": "mvc"
     }
   ],

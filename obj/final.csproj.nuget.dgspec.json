@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\final\\final.csproj": {}
+    "d:\\Project\\final\\final.csproj": {}
   },
   "projects": {
-    "D:\\Project\\final\\final.csproj": {
+    "d:\\Project\\final\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\final\\final.csproj",
+        "projectUniqueName": "d:\\Project\\final\\final.csproj",
         "projectName": "final",
-        "projectPath": "D:\\Project\\final\\final.csproj",
+        "projectPath": "d:\\Project\\final\\final.csproj",
         "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\final\\obj\\",
+        "outputPath": "d:\\Project\\final\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.9, )"
@@ -55,6 +59,10 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[7.0.9, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
