@@ -184,9 +184,27 @@ border:0px;
 </div>
 
 <div class="container Add" >
-  <h1 class="my-2">Add Device</h1>
-  <input type="text" class="input-box" placeholder="Enter device name">
-  <button class="button ">Add</button>
+  @{
+    ViewData["Title"] = "Home";
+}
+
+<h1 class="my-2">Add Device</h1>
+<form asp-controller="Home" asp-action="Admin" method="post">
+    <div class="form-group">
+        <label for="deviceType">Device Type<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="deviceType" name="deviceType" placeholder="Enter Your device" required>
+    </div>
+    <div class="form-group">
+        <label for="count">Count<span class="text-danger">*</span></label>
+        <input type="number" class="form-control" id="count" name="count" placeholder="Number of devices you need to add" required>
+    </div>
+    <div class="form-group">
+        <label for="specifications">Specifications<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="specifications" name="specifications" placeholder="specifications" required>
+    </div>
+    <button type="submit" class="but" onclick="addDevice()">Add Device</button>
+</form>
+ 
 </div>
 <div class="container-fluid px-1 py-5 mx-auto AssignDevice" >
   <div class="row d-flex justify-content-center">
@@ -197,15 +215,15 @@ border:0px;
               <h5 class="text-center mb-4"></h5>
               <form class="form-card p-4" onsubmit="event.preventDefault()">
                   <div class="row justify-content-between text-left">
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" onblur="validate(1)"> </div>
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" onblur="validate(2)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" > </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" > </div>
                   </div>
                   <div class="row justify-content-between text-left">
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Type<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Device Type" onblur="validate(3)"> </div>
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Id<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="Enter Device Id" onblur="validate(4)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Type<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Device Type" > </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Id<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="Enter Device Id" > </div>
                   </div>
                   <div class="row justify-content-between text-left">
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" onblur="validate(3)"> </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" > </div>
               
                 </div>
                   
@@ -296,6 +314,8 @@ border:0px;
         </div>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
   function showAddDevice() {
   var addDeviceContainer = document.querySelector(".container.Add");
@@ -343,5 +363,41 @@ function showAssign() {
    addDeviceContainer.style.display = "none";
   }
 }
+  
+  function addDevice() {
+    const deviceType = $('#deviceType').val();
+    const count = parseInt($('#count').val());
+    const specifications = $('#specifications').val();
+
+    // Create the request body as an object
+ 
+};
+    // Make the POST request using jQuery's $.ajax method
+    $.ajax({
+      url: '/Home/Admin',
+      method: 'post',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function(result) {
+        if (result.success) {
+          alert('Device and Inventory added successfully.');
+          // Optionally, you can reset the form fields after a successful request
+          $('#deviceType').val('');
+          $('#count').val('');
+          $('#specifications').val('');
+        } else {
+          alert('Error: ' + result.message);
+        }
+      },
+      error: function(error) {
+        console.error('Error:', error);
+        alert('Error adding device.');
+      }
+    });
+  
+
+
+
     </script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

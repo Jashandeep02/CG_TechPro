@@ -24,5 +24,19 @@ namespace CG_TechPro.Data
         public DbSet<Inventory> Inventory { get; set; }
 
         public DbSet<Assigned> Assigned { get; set; }
+//          protected override void OnModelCreating(ModelBuilder modelBuilder)
+//     {
+//         modelBuilder.Entity<Devices>()
+//             .HasKey(d => d.D_Id); // Assuming the primary key for Devices table is 'Id'
+
+//         modelBuilder.Entity<Inventory>()
+//             .HasKey(i => i.I_Id); // Primary key for Inventory table
+
+//         modelBuilder.Entity<Inventory>()
+//             .HasOne<Devices>() // Define the relationship with Devices table
+//             .WithMany() // One Devices can have multiple Inventories
+//             .HasForeignKey(i => i.D_Id); // The foreign key column in Inventory table
+//     }
+// }
     }
 }

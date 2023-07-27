@@ -13,7 +13,7 @@ namespace CG_TechPro.Models
 
         public required string D_Type { get; set; }
 
-        public int MyProperty { get; set; }
+        
 
          public DateTime CreatedAtUTC { get; set; }
 
