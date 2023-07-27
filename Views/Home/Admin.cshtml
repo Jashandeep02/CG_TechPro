@@ -15,9 +15,14 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+<<<<<<< HEAD
     margin-bottom: 2%;
     color: rgb(2,2,73);
     display:none;
+=======
+    margin-bottom: 3%;
+    color: rgb(2,2,73);
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
   }
  
 
@@ -45,7 +50,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
   }
   .AssignDevice {
     display: block;
@@ -53,8 +61,12 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+<<<<<<< HEAD
    margin-bottom:3%;
    display: none;
+=======
+    margin-bottom: 10%;
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
   }
   .cardAd{
 border:0px;
@@ -70,6 +82,7 @@ border:0px;
     border-radius: 5px;
     cursor: pointer;
     padding: 8px 15px;
+<<<<<<< HEAD
     width:100%;
   }
   .UserStatus{
@@ -93,6 +106,8 @@ border:0px;
     color: rgb(2,2,73);
   
 
+=======
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
   }
 </style>
 <div class="container-fluid">
@@ -115,7 +130,11 @@ border:0px;
                           <div class="text-lg font-weight-bold text-dark text-uppercase mb-1">
                             Add Device</div>
                             <p class="card-text">To add a device into your system </p>
+<<<<<<< HEAD
                             <button type="button" onclick="showAddDevice()" class="but">Add Device</button>
+=======
+                            <button type="button"  class="but">Click Me</button>
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -133,7 +152,11 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             Assign Device</div>
                                <p class="card-text">Assign an user a device from your system</p>
+<<<<<<< HEAD
                             <button type="button" class="but" onclick="showAssign()">Assign Device</button>
+=======
+                            <button type="button" class="but"(click)=showAssign()>Click Me</button>
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -152,7 +175,11 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Device Status
                         </div>
                           <p class="card-text">Check all your devices  in inventory</p>
+<<<<<<< HEAD
                         <button type="button" class="but" onclick="DeviceStatus()">Check Status</button>
+=======
+                        <button type="button" class="but">Click Me</button>
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -171,7 +198,11 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             User Status</div>
                              <p class="card-text">check the status for the employees</p>
+<<<<<<< HEAD
                              <button type="button" class="but">Check Status</button>
+=======
+                             <button type="button" class="but">Click Me</button>
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -183,6 +214,7 @@ border:0px;
 </div>
 </div>
 
+<<<<<<< HEAD
 <div class="container Add" >
   @{
     ViewData["Title"] = "Home";
@@ -207,6 +239,14 @@ border:0px;
  
 </div>
 <div class="container-fluid px-1 py-5 mx-auto AssignDevice" >
+=======
+<div class="container Add" *ngIf="!showADD" >
+  <h1 class="my-2">Add Device</h1>
+  <input type="text" class="input-box" placeholder="Enter device name">
+  <button class="button ">Add</button>
+</div>
+<div class="container-fluid px-1 py-5 mx-auto AssignDevice" *ngIf="!showAss" >
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
   <div class="row d-flex justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
           <h1>Assign Device</h1>
@@ -215,6 +255,7 @@ border:0px;
               <h5 class="text-center mb-4"></h5>
               <form class="form-card p-4" onsubmit="event.preventDefault()">
                   <div class="row justify-content-between text-left">
+<<<<<<< HEAD
                       <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" > </div>
                       <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" > </div>
                   </div>
@@ -224,6 +265,17 @@ border:0px;
                   </div>
                   <div class="row justify-content-between text-left">
                     <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" > </div>
+=======
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" onblur="validate(1)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" onblur="validate(2)"> </div>
+                  </div>
+                  <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Type<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Device Type" onblur="validate(3)"> </div>
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Id<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="Enter Device Id" onblur="validate(4)"> </div>
+                  </div>
+                  <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" onblur="validate(3)"> </div>
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
               
                 </div>
                   
@@ -236,6 +288,7 @@ border:0px;
       </div>
   </div>
 </div>
+<<<<<<< HEAD
 <div class="container  UserStatus mb-5">
 
         <div class="row justify-content-center">
@@ -401,3 +454,7 @@ function showAssign() {
     </script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+=======
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019

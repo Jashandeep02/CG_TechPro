@@ -113,6 +113,7 @@ namespace final.Controllers{
         }
         return ("added success");
     }
+<<<<<<< HEAD
     
   
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -120,6 +121,27 @@ namespace final.Controllers{
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+=======
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+    public IActionResult Admin()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
     }
 }
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Project\final\bin\Debug\net7.0\appsettings.Development.json
 D:\Project\final\bin\Debug\net7.0\appsettings.json
 D:\Project\final\bin\Debug\net7.0\final.staticwebassets.runtime.json
@@ -261,6 +262,8 @@ D:\Project\final\obj\Debug\net7.0\refint\final.dll
 D:\Project\final\obj\Debug\net7.0\final.pdb
 D:\Project\final\obj\Debug\net7.0\final.genruntimeconfig.cache
 D:\Project\final\obj\Debug\net7.0\ref\final.dll
+=======
+>>>>>>> 73e46b73d1b515080faca1d39ceb332b13c82019
 C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\bin\Debug\net7.0\appsettings.json
 C:\Users\sanchit.arora\Desktop\PROJECT\CG_TechPro\bin\Debug\net7.0\final.staticwebassets.runtime.json
