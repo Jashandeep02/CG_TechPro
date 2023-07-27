@@ -13,10 +13,11 @@ namespace final.Controllers{
     {
         
         private readonly DataContext _context;
+        private readonly IHttpContextAccessor _accessor;
 
-
-        public HomeController(DataContext context)
+        public HomeController(DataContext context, IHttpContextAccessor accessor)
         {
+            _accessor = accessor;
             _context = context;
         }
 
@@ -35,6 +36,7 @@ namespace final.Controllers{
             return View();
         }
 
+        
         private static string GenerateJwtToken(Users user)
         {
             var claims = new List<Claim>
@@ -58,9 +60,8 @@ namespace final.Controllers{
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-
-        [HttpPost("/Home/Index")]
-
+        [HttpPost]
+        [Route("/Home/Index")]
         public ActionResult Login(Users user)
         {
             if(string.IsNullOrEmpty(user.UserName)|| string.IsNullOrEmpty(user.Password))
@@ -74,17 +75,34 @@ namespace final.Controllers{
             }
             var users = _context.Users.FirstOrDefault(u=>u.UserName==user.UserName);
             if(users == null){
-                return View("Index");
+                return BadRequest("Invalid user");
             }
-            bool VerifyPass = BCrypt.Net.BCrypt.Verify(users.Password, BCrypt.Net.BCrypt.HashPassword(user.Password));
+            bool VerifyPass = BCrypt.Net.BCrypt.Verify(user.Password, users.Password);
             if (users != null && VerifyPass)
             {
                 var token = GenerateJwtToken(users);
-                HttpContext.Session.SetString("jwtToken", token);
+                _accessor.HttpContext.Session.SetString("jwtToken", token);
+                var Id = users.U_Id;
+                _accessor.HttpContext.Session.SetString("UserId" , Id.ToString());
                 return RedirectToAction("User");
             }
-            return View("Index");
+            return BadRequest("Invalid");
         }
+
+         [HttpPost]
+        [Route("Admit")]
+        public IActionResult PostUser([FromBody] Users user){
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            string HashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password , salt);
+            var users = new Users {
+            UserName = user.UserName,
+            Password = HashedPassword,
+            };
+            _context.Users.Add(users);
+            _context.SaveChanges();
+            return Ok();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

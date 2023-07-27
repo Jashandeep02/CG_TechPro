@@ -15,6 +15,5 @@ namespace CG_TechPro.Models
 
         public required string Password { get; set; }
 
-        
     }
 }
