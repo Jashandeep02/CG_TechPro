@@ -10,7 +10,11 @@ a.navbar-brand[b-fz4djakgen] {
  
 
 }
+*[b-fz4djakgen]{
 
+  font-family: 'Poppins', sans-serif;
+
+}
 
 
 
