@@ -12328,23 +12328,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\": {},
+    "C:\\Users\\Bhoomika\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\CG_TechPro\\final.csproj",
+      "projectUniqueName": "C:\\Users\\Bhoomika\\Desktop\\CG_TECHPRO\\CG_TechPro\\final.csproj",
       "projectName": "final",
-      "projectPath": "d:\\CG_TechPro\\final.csproj",
-      "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-      "outputPath": "d:\\CG_TechPro\\obj\\",
+      "projectPath": "C:\\Users\\Bhoomika\\Desktop\\CG_TECHPRO\\CG_TechPro\\final.csproj",
+      "packagesPath": "C:\\Users\\Bhoomika\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bhoomika\\Desktop\\CG_TECHPRO\\CG_TechPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jashandeep.Singla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bhoomika\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12352,7 +12352,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12439,7 +12439,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }

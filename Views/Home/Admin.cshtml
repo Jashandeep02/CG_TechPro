@@ -1,4 +1,7 @@
 <style>
+  .container.DeviceStatus {
+    display: none;
+}
     .container{
     display: flex;
     justify-content: center;
@@ -151,7 +154,7 @@ border:0px;
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             User Status</div>
                              <p class="card-text">check the status for the employees</p>
-                             <button type="button" class="but">Check Status</button>
+                             <button  onclick="UserStatus()"type="button"class="but">Check Status</button>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -236,7 +239,7 @@ border:0px;
             </div>
         </div>
     </div>
-    <div class="container DeviceStatus ">
+    <div class="container DeviceStatus " id="userStatusContainer">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h1 class="text-center mb-4">User Status</h1> 
@@ -245,7 +248,7 @@ border:0px;
                     <input type="text" class="form-control" placeholder="Enter UserId">
                 </div>
                 <div class="text-center">
-                    <button class="but">Show All Devices</button>
+                    <button  class="but">Show All Devices</button>
                 </div>
             </div>
         </div>
@@ -297,6 +300,21 @@ function showAssign() {
    addDeviceContainer.style.display = "none";
   }
 }
+    function UserStatus() {
+        var addDeviceContainer = document.getElementById("userStatusContainer");
+        if (addDeviceContainer) {
+            var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+            if (displayStyle === "none") {
+                // If the element is hidden, show it
+                addDeviceContainer.style.display = "block";
+            } else {
+                // If the element is visible, hide it
+                addDeviceContainer.style.display = "none";
+            }
+        }
+    }
+
+
  function addDevice() {
     const deviceType = $('#deviceType').val();
     const count = parseInt($('#count').val());
