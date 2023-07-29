@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CG_TechPro\\final.csproj": {}
+    "d:\\CG_TechPro\\final.csproj": {}
   },
   "projects": {
-    "D:\\CG_TechPro\\final.csproj": {
+    "d:\\CG_TechPro\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CG_TechPro\\final.csproj",
+        "projectUniqueName": "d:\\CG_TechPro\\final.csproj",
         "projectName": "final",
-        "projectPath": "D:\\CG_TechPro\\final.csproj",
+        "projectPath": "d:\\CG_TechPro\\final.csproj",
         "packagesPath": "C:\\Users\\sanchit.arora\\.nuget\\packages\\",
-        "outputPath": "D:\\CG_TechPro\\obj\\",
+        "outputPath": "d:\\CG_TechPro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
