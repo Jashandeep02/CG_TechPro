@@ -15,8 +15,6 @@ namespace CG_TechPro.Models
 
         public Guid D_Id { get; set; }
 
-        public int MyProperty { get; set; }
-
          public DateTime AssignedAtUTC { get; set; }
 
          public required string AssignedBy { get; set; }
