@@ -1,5 +1,8 @@
 
 <style>
+  *{
+color:rgb(2,2,73) ;
+  }
 
     .container{
 
@@ -31,7 +34,7 @@
 
     border-radius: 5px;
 
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 
     color: rgb(2,2,73);
 
@@ -79,9 +82,7 @@
 
     padding: 8px 15px;
 
-    background-color: rgb(255,174,0
-
-    );
+    background-color: rgb(255,174,0);
 
     color: black;
 
@@ -100,14 +101,11 @@
     display: block;
 
     text-align: center;
-
-    padding: 20px;
-
     border: 1px solid #ccc;
 
     border-radius: 5px;
 
-   margin-bottom:3%;
+   margin-bottom:5%;
 
    display: none;
 
@@ -123,13 +121,8 @@ border:0px;
 
   .but{
 
-    background-color: rgb(255,174,0
 
-        );
-
-        background-color: rgb(255,174,0
-
-    );
+    background-color: rgb(255,174,0);
 
     color: black;
 
@@ -157,7 +150,7 @@ border:0px;
 
     border-radius: 5px;
 
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 
     color: rgb(2,2,73);
 
@@ -183,7 +176,7 @@ border:0px;
 
     color: rgb(2,2,73);
 
- 
+ display: none;
 
  
 
@@ -343,7 +336,7 @@ border:0px;
 
                              <p class="card-text">check the status for the employees</p>
 
-                             <button type="button" class="but">Check Status</button>
+                             <button type="button" class="but" onclick="showUsers()">Check Status</button>
 
                     </div>
 
@@ -413,7 +406,7 @@ border:0px;
 
 </div>
 
-<div class="container-fluid px-1 py-5 mx-auto AssignDevice" >
+<div class="container-fluid px-1 py-4 mx-auto AssignDevice" >
 
   <div class="row d-flex justify-content-center">
 
@@ -473,7 +466,7 @@ border:0px;
 
 </div>
 
-<div class="container  UserStatus mb-5">
+<div class="container  DeviceStatus mb-5">
 
  
 
@@ -579,7 +572,7 @@ border:0px;
 
     </div>
 
-    <div class="container DeviceStatus ">
+    <div class="container UserStatus ">
 
  
 
@@ -699,6 +692,36 @@ function showAssign() {
 
   function DeviceStatus() {
 
+  var addDeviceContainer = document.querySelector(".container.DeviceStatus");
+
+  if (addDeviceContainer) {
+
+     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+    if (displayStyle === "none") {
+
+      // If the element is hidden, show it
+
+      addDeviceContainer.style.display = "block";
+
+    } else {
+
+      // If the element is visible, hide it
+
+      addDeviceContainer.style.display = "none";
+
+    }
+
+  } else {
+
+   addDeviceContainer.style.display = "none";
+
+  }
+
+
+}
+ function showUsers() {
+
   var addDeviceContainer = document.querySelector(".container.UserStatus");
 
   if (addDeviceContainer) {
@@ -726,6 +749,7 @@ function showAssign() {
   }
 
 }
+
 
  
 

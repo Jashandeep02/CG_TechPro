@@ -9,6 +9,9 @@ a.navbar-brand[b-fz4djakgen] {
  
 
 }
+.navbar[b-fz4djakgen]{
+   background-color: #454545;;
+}
 *[b-fz4djakgen]{
 
   font-family: 'Poppins', sans-serif;
@@ -104,8 +107,13 @@ button.accept-policy[b-fz4djakgen] {
   white-space: nowrap;
 
   line-height: 60px;
+  background-color: #454545;;
+  text-align: center;
+  color: white;
 
 }
+
+
 
 
 

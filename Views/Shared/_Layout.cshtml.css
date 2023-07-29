@@ -9,6 +9,9 @@
  
 
 }
+.navbar{
+   background-color: #454545;;
+}
 *{
 
   font-family: 'Poppins', sans-serif;
@@ -104,8 +107,13 @@ button.accept-policy {
   white-space: nowrap;
 
   line-height: 60px;
+  background-color: #454545;;
+  text-align: center;
+  color: white;
 
 }
+
+
 
 
 
