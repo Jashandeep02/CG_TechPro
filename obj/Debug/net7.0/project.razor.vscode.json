@@ -18651,11 +18651,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\CG_TechPro\\Views\\Home\\Admin.cshtml",
-      "TargetPath": "Views\\Home\\Admin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\CG_TechPro\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -18678,6 +18673,11 @@
     {
       "FilePath": "d:\\CG_TechPro\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\CG_TechPro\\Views\\Home\\Admin.cshtml",
+      "TargetPath": "Views\\Home\\Admin.cshtml",
       "FileKind": "mvc"
     }
   ],

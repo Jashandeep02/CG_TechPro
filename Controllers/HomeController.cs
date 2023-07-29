@@ -36,7 +36,10 @@ namespace final.Controllers{
             return View();
         }
 
-        
+        public IActionResult Admin()
+        {
+            return View();
+        }
         private static string GenerateJwtToken(Users user)
         {
             var claims = new List<Claim>
@@ -84,7 +87,7 @@ namespace final.Controllers{
                 _accessor.HttpContext.Session.SetString("jwtToken", token);
                 var Id = users.U_Id;
                 _accessor.HttpContext.Session.SetString("UserId" , Id.ToString());
-                return RedirectToAction("User");
+                return RedirectToAction("Admin");
             }
             return BadRequest("Invalid");
         }
@@ -102,6 +105,33 @@ namespace final.Controllers{
             _context.SaveChanges();
             return Ok();
         }
+
+        [HttpPost("/Home/Admin")]
+        public  JsonResult addDevice(string deviceType, int count, string specifications)
+        {
+            string Id = _accessor.HttpContext.Session.GetString("UserId");
+            var data = new Devices { D_Type = deviceType,CreatedAtUTC=DateTime.Now,UpdatedAtUTC=DateTime.Now, CreatedBy=Id};
+            _context.Devices.Add(data);
+             for (int i = 0; i < count; i++)
+            {           
+                var deviceData = _context.Devices.Find(data.D_Id);
+                if(deviceData != null){   
+                    var data1=new Inventory { Specifications=specifications ,CreatedBy=deviceData.CreatedBy, D_State='U', };
+                    data1.D_Id = deviceData.D_Id;
+                    _context.Inventory.Add(data1);          
+                }
+            _context.SaveChanges();
+        }
+        return Json(new {success = true});
+    }
+
+
+    // [HttpGet]
+    // [Route("/Home/Admin/GetData")]
+    // public IActionResult GetData(Guid userId){
+    //     var username = _context.Users.FirstOrDefault(u => u.U_Id == userId)?.UserName;
+    //     var devT = _context.Assigned.FirstOrDefault(d => d. == userId)?.D_Type;
+    // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -19,6 +19,6 @@ namespace CG_TechPro.Models
 
          public DateTime AssignedAtUTC { get; set; }
 
-         public int AssignedBy { get; set; }
+         public required string AssignedBy { get; set; }
     }
 }

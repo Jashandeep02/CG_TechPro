@@ -13,9 +13,10 @@ namespace CG_TechPro.Models
 
         public Guid D_Id { get; set; }
 
-        public required string  Serial_No { get; set; } 
+        public Guid Serial { get; set; } 
 
-        public int CreatedBy { get; set; }
+        public required string Specifications { get; set; }
+        public required string CreatedBy { get; set; }
 
         public char D_State { get; set; }
     }
