@@ -10,14 +10,14 @@
         "projectUniqueName": "D:\\CG_TechPro\\final.csproj",
         "projectName": "final",
         "projectPath": "D:\\CG_TechPro\\final.csproj",
-        "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\sanchit.arora\\.nuget\\packages\\",
         "outputPath": "D:\\CG_TechPro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jashandeep.Singla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sanchit.arora\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,6 +87,10 @@
             "Microsoft.Extensions.Caching.Memory": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.32.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

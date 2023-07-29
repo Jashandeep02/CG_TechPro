@@ -36,6 +36,11 @@ namespace final.Controllers{
             return View();
         }
 
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
         
         private static string GenerateJwtToken(Users user)
         {
@@ -102,6 +107,25 @@ namespace final.Controllers{
             _context.SaveChanges();
             return Ok();
         }
+        [HttpPost("/Home/Admin")]
+    public  JsonResult addDevice(string deviceType, int count, string specifications)
+    {
+        var data = new Devices { D_Type = deviceType,CreatedAtUTC=DateTime.Now,UpdatedAtUTC=DateTime.Now, CreatedBy=123};
+        _context.Devices.Add(data);
+     for (int i = 0; i < count; i++)
+    {
+                       
+        var deviceData = _context.Devices.Find(data.D_Id);
+        if(deviceData != null){
+          
+        var data1=new Inventory { Specifications=specifications ,CreatedBy=deviceData.CreatedBy, D_State='U', };
+            data1.D_Id = deviceData.D_Id;
+            _context.Inventory.Add(data1);          
+        }
+        _context.SaveChanges();
+        }
+        return Json(new { success = true });
+    }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
