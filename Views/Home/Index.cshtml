@@ -106,27 +106,27 @@
 
  
 
-      @* if (!/(?=.*[A-Z])/.test(password)) {
+       if (!/(?=.*[A-Z])/.test(password)) {
         uppercaseError.style.display = 'block';
       } else {
         uppercaseError.style.display = 'none';
-      } *@
+      } 
 
  
 
-      @* if (!/(?=.*[^a-zA-Z0-9])/.test(password)) {
+       if (!/(?=.*[^a-zA-Z0-9])/.test(password)) {
         specialError.style.display = 'block';
       } else {
         specialError.style.display = 'none';
-      } *@
+      } 
 
  
 
-      @* if (!/(?=.*\d)/.test(password)) {
+       if (!/(?=.*\d)/.test(password)) {
         numberError.style.display = 'block';
       } else {
         numberError.style.display = 'none';
-      } *@
+      } 
 
  
 
@@ -152,8 +152,5 @@
     }
   }
 </script>
-
- 
-
 </body>
 </html>
