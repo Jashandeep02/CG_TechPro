@@ -1,335 +1,1563 @@
 <style>
-    .container{
+  * {
+
+    color: rgb(2, 2, 73);
+
+  }
+
+
+
+  .container {
+
+
+
     display: flex;
+
+
+
     justify-content: center;
-}
-.card{
+
+
+
+
+
+
+
+  }
+
+
+
+  .card {
+
+
+
     margin: 0.5%;
-}
-.Add{
-    display: block;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 2%;
-    color: rgb(2,2,73);
-    display:none;
+
+
+
+
+
+
+
   }
+
+
+
+  .Add {
+
+
+
+    display: block;
+
+
+
+    text-align: center;
+
+
+
+    padding: 20px;
+
+
+
+    border: 1px solid #ccc;
+
+
+
+    border-radius: 5px;
+
+
+
+    margin-bottom: 5%;
+
+
+
+    color: rgb(2, 2, 73);
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
   /* Style for the input box */
-  input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black; /* Adding the light gray line at the bottom */
-    padding: 5px;
-}
+
+
+
+  @*input{width:100%;border:none;border-bottom:1pxsolidblack;/*Addingthelightgraylineatthebottom*/padding:5px;}*@
   /* Style for the heading */
+
+
+
   h2 {
+
+
+
     margin-bottom: 10px;
+
+
+
   }
+
+
+
+
+
+
+
   /* Style for the button */
+
+
+
   .button {
+
+
+
     margin-top: 10px;
+
+
+
     padding: 8px 15px;
-    background-color: rgb(255,174,0
-    );
+
+
+
+    background-color: rgb(255, 174, 0);
+
+
+
     color: black;
+
+
+
     border: none;
+
+
+
     border-radius: 5px;
+
+
+
     cursor: pointer;
+
+
+
+
+
+
+
   }
+
+
+
   .AssignDevice {
+
+
+
     display: block;
+
+
+
     text-align: center;
-    padding: 20px;
+
     border: 1px solid #ccc;
+
+
+
     border-radius: 5px;
-   margin-bottom:3%;
-   display: none;
+
+
+
+    margin-bottom: 5%;
+
+
+
+    display: none;
+
+
+
   }
-  .cardAd{
-border:0px;
+
+
+
+  .cardAd {
+
+
+
+    border: 0px;
+
+
+
   }
-  .but{
-    background-color: rgb(255,174,0
-        );
-        background-color: rgb(255,174,0
-    );
+
+
+
+
+
+
+
+  .but {
+
+
+
+
+
+    background-color: rgb(255, 174, 0);
+
+
+
     color: black;
+
+
+
     border: none;
+
+
+
     border-radius: 5px;
+
+
+
     cursor: pointer;
+
+
+
     padding: 8px 15px;
-    width:100%;
+
+
+
+    width: 100%;
+
+
+
   }
-  .UserStatus{
+
+
+
+  .UserStatus {
+
+
+
     display: block;
+
+
+
     text-align: center;
+
+
+
     padding: 20px;
+
+
+
     border: 1px solid #ccc;
+
+
+
     border-radius: 5px;
-    margin-bottom: 2%;
-    color: rgb(2,2,73);
-    display:none;
+
+
+
+    margin-bottom: 5%;
+
+
+
+    color: rgb(2, 2, 73);
+
+
+
+    display: none;
+
+
+
+
+
+
+
   }
-  .DeviceStatus{
+
+
+
+  .DeviceStatus {
+
+
+
     display: block;
+
+
+
     text-align: center;
+
+
+
     padding: 20px;
+
+
+
     border: 1px solid #ccc;
+
+
+
     border-radius: 5px;
+
+
+
     margin-bottom: 3%;
-    color: rgb(2,2,73);
+
+
+
+    color: rgb(2, 2, 73);
+
+
+
+    display: none;
+
+
+
+
+
+
+
   }
 </style>
+
+
+
 <div class="container-fluid">
-<!-- Page Heading -->
+
+
+
+
+
+
+
+  <!-- Page Heading -->
+
+
+
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+
+
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+
+
+
+
+
+
   </div>
+
+
+
+
+
+
+
   <!-- Content Row -->
+
+
+
   <div class="row">
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-lg font-weight-bold text-dark text-uppercase mb-1">
-                            Add Device</div>
-                            <p class="card-text">To add a device into your system </p>
-                            <button type="button" onclick="showAddDevice()" class="but">Add Device</button>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                      </div>
-                  </div>
+
+
+
+
+
+
+
+    <!-- Earnings (Monthly) Card Example -->
+
+
+
+    <div class="col-xl-3 col-md-6 mb-4">
+
+
+
+      <div class="card border-left-success shadow h-100 py-2">
+
+
+
+        <div class="card-body">
+
+
+
+          <div class="row no-gutters align-items-center">
+
+
+
+            <div class="col mr-2">
+
+
+
+              <div class="text-lg font-weight-bold text-dark text-uppercase mb-1">
+
+
+
+                Add Device</div>
+
+
+
+              <p class="card-text">To add a device into your system </p>
+
+
+
+              <button type="button" onclick="showAddDevice()" class="but">Add Device</button>
+
+
+
+            </div>
+
+
+
+            <div class="col-auto">
+
+
+
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+
+
+
+            </div>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="col-xl-3 col-md-6 mb-4">
+
+
+
+      <div class="card border-left-success shadow h-100 py-2">
+
+
+
+        <div class="card-body">
+
+
+
+          <div class="row no-gutters align-items-center">
+
+
+
+            <div class="col mr-2">
+
+
+
+              <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+
+
+
+                Assign Device</div>
+
+
+
+              <p class="card-text">Assign an user a device from your system</p>
+
+
+
+              <button type="button" class="but" onclick="showAssign()">Assign Device</button>
+
+
+
+            </div>
+
+
+
+            <div class="col-auto">
+
+
+
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+
+
+
+            </div>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Earnings (Monthly) Card Example -->
+
+
+
+    <div class="col-xl-3 col-md-6 mb-4">
+
+
+
+      <div class="card border-left-info shadow h-100 py-2">
+
+
+
+        <div class="card-body">
+
+
+
+          <div class="row no-gutters align-items-center">
+
+
+
+            <div class="col mr-2">
+
+
+
+              <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Device Status
+
+
+
               </div>
+
+
+
+              <p class="card-text">Check all your devices in inventory</p>
+
+
+
+              <button type="button" class="but" onclick="DeviceStatus()">Check Status</button>
+
+
+
+            </div>
+
+
+
+            <div class="col-auto">
+
+
+
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+
+
+
+            </div>
+
+
+
           </div>
+
+
+
+        </div>
+
+
+
       </div>
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                            Assign Device</div>
-                               <p class="card-text">Assign an user a device from your system</p>
-                            <button type="button" class="but" onclick="showAssign()">Assign Device</button>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
     </div>
- <!-- Earnings (Monthly) Card Example -->
+
+
+
+
+
+
+
+    <!-- Pending Requests Card Example -->
+
+
+
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Device Status
-                        </div>
-                          <p class="card-text">Check all your devices  in inventory</p>
-                        <button type="button" class="but" onclick="DeviceStatus()">Check Status</button>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                </div>
+
+
+
+      <div class="card border-left-warning shadow h-100 py-2">
+
+
+
+        <div class="card-body">
+
+
+
+          <div class="row no-gutters align-items-center">
+
+
+
+            <div class="col mr-2">
+
+
+
+              <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+
+
+
+                User Status</div>
+
+
+
+              <p class="card-text">check the status for the employees</p>
+
+
+
+              <button type="button" class="but" onclick="showUsers()">Check Status</button>
+
+
+
             </div>
-        </div>
-    </div>
- <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                            User Status</div>
-                             <p class="card-text">check the status for the employees</p>
-                             <button type="button" class="but">Check Status</button>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                </div>
+
+
+
+            <div class="col-auto">
+
+
+
+              <i class="fas fa-comments fa-2x text-gray-300"></i>
+
+
+
             </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="container Add" >
-  @{
-    ViewData["Title"] = "Home";
-}
-<h1 class="my-2">Add Device</h1>
-<form asp-controller="Home" asp-action="Admin" method="post">
-    <div class="form-group">
-        <label for="deviceType">Device Type<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="deviceType" name="deviceType" placeholder="Enter Your device" required>
-    </div>
-    <div class="form-group">
-        <label for="count">Count<span class="text-danger">*</span></label>
-        <input type="number" class="form-control" id="count" name="count" placeholder="Number of devices you need to add" required>
-    </div>
-    <div class="form-group">
-        <label for="specifications">Specifications<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="specifications" name="specifications" placeholder="specifications" required>
-    </div>
-    <button type="submit" class="but" onclick="addDevice()">Add Device</button>
-</form>
-</div>
-<div class="container-fluid px-1 py-5 mx-auto AssignDevice" >
-  <div class="row d-flex justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-          <h1>Assign Device</h1>
-          <div class="card  cardAd">
-              <h5 class="text-center mb-4"></h5>
-              <form class="form-card p-4" onsubmit="event.preventDefault()">
-                  <div class="row justify-content-between text-left">
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter User Name" > </div>
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">User ID <span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter User Id" > </div>
-                  </div>
-                  <div class="row justify-content-between text-left">
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Type<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Device Type" > </div>
-                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Device Id<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="Enter Device Id" > </div>
-                  </div>
-                  <div class="row justify-content-between text-left">
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label ">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter Employee Code" > </div>
-                    </div>
-                  <div class="row justify-content-center">
-                      <div class="form-group col-sm-6 m-5">  <button type="button" class="but">Assign Device</button> </div>
-                  </div>
-              </form>
+
+
+
           </div>
+
+
+
+        </div>
+
+
+
       </div>
+
+
+
+    </div>
+
+
+
   </div>
+
+
+
 </div>
-<div class="container  UserStatus mb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h1 class="text-center mb-4">Device Status</h1>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search for devices">
-                </div>
-                <div class="d-flex justify-content-center mb-3"> <!-- Center align the filters -->
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="assignedFilter">
-                        <label class="form-check-label" for="assignedFilter">Assigned</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="unassignedFilter">
-                        <label class="form-check-label" for="unassignedFilter">Unassigned</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="repairFilter">
-                        <label class="form-check-label" for="repairFilter">Repair</label>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <button class="but">Show Devices</button> <!-- Show Devices button -->
-                </div>
-            </div>
-        </div>
+
+
+
+
+
+
+
+<div class="container Add">
+
+  <h1 class="my-2">Add Device</h1>
+
+
+
+  <form asp-controller="Home" asp-action="Admin" method="post">
+
+
+
+    <div class="form-group">
+
+
+
+      <label for="deviceType">Device Type<span class="text-danger">*</span></label>
+
+
+
+      <input type="text" class="form-control" id="deviceType" name="deviceType" placeholder="Enter Your device"
+        required>
+
+
+
     </div>
-    <div class="container DeviceStatus ">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h1 class="text-center mb-4">User Status</h1> 
-                <!-- Added mb-4 class for margin-bottom -->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter UserId">
-                </div>
-                <div class="text-center">
-                    <button class="but">Show All Devices</button>
-                </div>
-            </div>
-        </div>
+
+
+
+    <div class="form-group">
+
+
+
+      <label for="count">Count<span class="text-danger">*</span></label>
+
+
+
+      <input type="number" class="form-control" id="count" name="count" placeholder="Number of devices you need to add"
+        required>
+
+
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+
+
+
+    <div class="form-group">
+
+
+
+      <label for="specifications">Specifications<span class="text-danger">*</span></label>
+
+
+
+      <input type="text" class="form-control" id="specifications" name="specifications" placeholder="specifications"
+        required>
+
+
+
+    </div>
+
+
+
+    <button type="submit" class="but" onclick="addDevice()">Add Device</button>
+
+
+
+  </form>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="container-fluid px-1 py-4 mx-auto AssignDevice">
+
+
+
+  <div class="row d-flex justify-content-center">
+
+
+
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+
+
+
+      <h1>Assign Device</h1>
+
+
+
+
+
+
+
+      <div class="card  cardAd text-center">
+
+
+
+        <h5 class="text-center mb-4"></h5>
+
+
+
+        <form class="form-card p-4 text-center" asp-action="/Admin/Assign" method="post">
+
+
+
+
+
+          <div class="row justify-content-between ">
+
+            <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label  " for="uid">User ID
+                <span class="text-danger"> *</span></label> <input type="text" id="uid" name="Emp_Code"
+                placeholder="Enter Employee Id" required class="form-control"> </div>
+
+
+
+          </div>
+
+
+
+          <div class="row justify-content-between ">
+
+
+
+            <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label  " for="I_id">Serial
+                Id<span class="text-danger"> *</span></label> <input type="text" id="I_id" name="I_Id"
+                placeholder="Enter Serail_no/Inventory ID" required class="form-control"> </div>
+
+
+
+          </div>
+
+
+
+          <div class="row justify-content-between ">
+
+
+
+            <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label "
+                for="It_emp">Assigned by<span class="text-danger"> *</span></label> <input type="text" id="It_emp"
+                name="AssignedBy" placeholder="Enter Employee Code" required class="form-control"> </div>
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="row justify-content-center">
+
+
+
+            <div class="form-group col-sm-6 m-5"> <button type="button" class="but" onclick="assignDevice()">Assign
+                Device</button> </div>
+
+
+
+          </div>
+
+
+
+        </form>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<div class="container  DeviceStatus mb-5">
+
+
+
+
+
+
+
+  <div class="row justify-content-center">
+
+
+
+
+
+
+
+    <div class="col-md-6">
+
+
+
+
+
+
+
+      <h1 class="text-center mb-4">Device Status</h1>
+
+
+
+
+
+
+
+      <div class="input-group mb-3">
+
+
+
+
+
+
+
+        <input type="text" class="form-control" placeholder="Search for devices">
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="d-flex justify-content-center mb-3"> <!-- Center align the filters -->
+
+
+
+
+
+
+
+        <div class="form-check form-check-inline">
+
+
+
+
+
+
+
+          <input class="form-check-input" type="checkbox" id="assignedFilter">
+
+
+
+
+
+
+
+          <label class="form-check-label" for="assignedFilter">Assigned</label>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="form-check form-check-inline">
+
+
+
+
+
+
+
+          <input class="form-check-input" type="checkbox" id="unassignedFilter">
+
+
+
+
+
+
+
+          <label class="form-check-label" for="unassignedFilter">Unassigned</label>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="form-check form-check-inline">
+
+
+
+
+
+
+
+          <input class="form-check-input" type="checkbox" id="repairFilter">
+
+
+
+
+
+
+
+          <label class="form-check-label" for="repairFilter">Repair</label>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="text-center">
+
+
+
+
+
+
+
+        <button class="but">Show Devices</button> <!-- Show Devices button -->
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="container UserStatus ">
+
+
+
+
+
+
+
+  <div class="row justify-content-center">
+
+
+
+
+
+
+
+    <div class="col-md-6">
+
+
+
+
+
+
+
+      <h1 class="text-center mb-4">User Status</h1> <!-- Added mb-4 class for margin-bottom -->
+
+
+
+
+
+
+
+      <div class="input-group mb-3">
+
+
+
+
+
+
+
+        <input type="text" class="form-control" placeholder="Enter UserId">
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="text-center">
+
+
+
+
+
+
+
+        <button class="but">Show All Devices</button>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+
+
+<script>
+
+
+
   function showAddDevice() {
-  var addDeviceContainer = document.querySelector(".container.Add");
-  if (addDeviceContainer) {
-     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-    if (displayStyle === "none") {
-      // If the element is hidden, show it
-      addDeviceContainer.style.display = "block";
-    } else {
-      // If the element is visible, hide it
-      addDeviceContainer.style.display = "none";
-    }
-  } else {
-   addDeviceContainer.style.display = "none";
-  }
-}
-function showAssign() {
-  var addDeviceContainer = document.querySelector(".container-fluid.AssignDevice");
-  if (addDeviceContainer) {
-     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-    if (displayStyle === "none") {
-      // If the element is hidden, show it
-      addDeviceContainer.style.display = "block";
-    } else {
-      // If the element is visible, hide it
-      addDeviceContainer.style.display = "none";
-    }
-  } else {
-   addDeviceContainer.style.display = "none";
-  }
-}
-  function DeviceStatus() {
-  var addDeviceContainer = document.querySelector(".container.UserStatus");
-  if (addDeviceContainer) {
-     var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-    if (displayStyle === "none") {
-      // If the element is hidden, show it
-      addDeviceContainer.style.display = "block";
-    } else {
-      // If the element is visible, hide it
-      addDeviceContainer.style.display = "none";
-    }
-  } else {
-   addDeviceContainer.style.display = "none";
-  }
-}
- function addDevice() {
-    const deviceType = $('#deviceType').val();
-    const count = parseInt($('#count').val());
-    const specifications = $('#specifications').val();
-    const data = { deviceType, count, specifications };
-    // Make the POST request using jQuery's $.ajax method
-    $.ajax({
-      url: '/Home/Admin',
-      method: 'post',
-      contentType: 'application/json',
-      data: JSON.stringify(data),
-      success: function(result) {
-        if (result.success) {
-          // Show success message
-          alert('Device and Inventory added successfully.');
-          // Optionally, you can reset the form fields after a successful request
-          $('#deviceType').val('');
-          $('#count').val('');
-          $('#specifications').val('');
-          window.location.href = '/Home/Admin';
-        } else {
-          // Show error message
-          alert('Error: ' + result.message);
-        }
-      },
-      error: function(error) {
-        console.error('Error:', error);
-        // Show error message
-        alert('Error adding device.');
+
+
+
+    var addDeviceContainer = document.querySelector(".container.Add");
+
+
+
+    if (addDeviceContainer) {
+
+
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+
+
+      if (displayStyle === "none") {
+
+
+
+        // If the element is hidden, show it
+
+
+
+        addDeviceContainer.style.display = "block";
+
+
+
+      } else {
+
+
+
+        // If the element is visible, hide it
+
+
+
+        addDeviceContainer.style.display = "none";
+
+
+
       }
-    });
+
+
+
+    } else {
+
+
+
+      addDeviceContainer.style.display = "none";
+
+
+
+    }
+
+
+
   }
-    </script>
+
+
+
+
+
+
+
+  function showAssign() {
+
+
+
+    var addDeviceContainer = document.querySelector(".container-fluid.AssignDevice");
+
+
+
+    if (addDeviceContainer) {
+
+
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+
+
+      if (displayStyle === "none") {
+
+
+
+        // If the element is hidden, show it
+
+
+
+        addDeviceContainer.style.display = "block";
+
+
+
+      } else {
+
+
+
+        // If the element is visible, hide it
+
+
+
+        addDeviceContainer.style.display = "none";
+
+
+
+      }
+
+
+
+    } else {
+
+
+
+      addDeviceContainer.style.display = "none";
+
+
+
+    }
+
+
+
+  }
+
+
+
+  function DeviceStatus() {
+
+
+
+    var addDeviceContainer = document.querySelector(".container.DeviceStatus");
+
+
+
+    if (addDeviceContainer) {
+
+
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+
+
+      if (displayStyle === "none") {
+
+
+
+        // If the element is hidden, show it
+
+
+
+        addDeviceContainer.style.display = "block";
+
+
+
+      } else {
+
+
+
+        // If the element is visible, hide it
+
+
+
+        addDeviceContainer.style.display = "none";
+
+
+
+      }
+
+
+
+    } else {
+
+
+
+      addDeviceContainer.style.display = "none";
+
+
+
+    }
+
+
+
+
+
+  }
+
+  function showUsers() {
+
+
+
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+
+
+
+    if (addDeviceContainer) {
+
+
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+
+
+      if (displayStyle === "none") {
+
+
+
+        // If the element is hidden, show it
+
+
+
+        addDeviceContainer.style.display = "block";
+
+
+
+      } else {
+
+
+
+        // If the element is visible, hide it
+
+
+
+        addDeviceContainer.style.display = "none";
+
+
+
+      }
+
+
+
+    } else {
+
+
+
+      addDeviceContainer.style.display = "none";
+
+
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+  function addDevice() {
+
+    const deviceType = $('#deviceType').val();
+
+    const count = parseInt($('#count').val());
+
+    const specifications = $('#specifications').val();
+
+    const data = { deviceType, count, specifications };
+
+
+
+    // Make the POST request using jQuery's $.ajax method
+
+    $.ajax({
+
+      url: '/Home/Admin',
+
+      method: 'post',
+
+      contentType: 'application/json',
+
+      data: JSON.stringify(data),
+
+      success: function (result) {
+
+        if (result.success) {
+
+          // Show success message
+
+          alert('Device and Inventory added successfully.');
+
+          // Optionally, you can reset the form fields after a successful request
+
+          $('#deviceType').val('');
+
+          $('#count').val('');
+
+          $('#specifications').val('');
+
+          window.location.href = '/Home/Admin'
+
+        } else {
+
+          // Show error messageg
+
+          alert('Error: ' + result.message);
+
+        }
+
+      },
+
+      error: function (error) {
+
+        console.error('Error:', error);
+
+        // Show error message
+
+        alert('Error adding device.');
+
+      }
+
+    });
+
+  }
+
+
+
+  @* function addDevice() {
+
+    const deviceType = $('#deviceType').val();
+
+    const count = parseInt($('#count').val());
+
+    const specifications = $('#specifications').val();
+
+    const data = { deviceType, count, specifications };
+
+
+
+    // Make the POST request using jQuery's $.ajax method
+
+    $.ajax({
+
+    url: '/Home/Admin',
+
+    method: 'post', *@
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
- 
+
+

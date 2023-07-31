@@ -116,7 +116,9 @@ namespace final.Controllers{
             {           
                 var deviceData = _context.Devices.Find(data.D_Id);
                 if(deviceData != null){   
-                    var data1=new Inventory { Specifications=specifications ,CreatedBy=deviceData.CreatedBy, D_State='U', };
+                   Guid serial = Guid.NewGuid();
+                   Guid Iid = Guid.NewGuid();
+                    var data1=new Inventory {I_Id = Iid, Specifications=specifications ,CreatedBy=deviceData.CreatedBy, D_State='U', Serial = serial};
                     data1.D_Id = deviceData.D_Id;
                     _context.Inventory.Add(data1);          
                 }

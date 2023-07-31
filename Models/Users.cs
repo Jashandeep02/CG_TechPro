@@ -9,7 +9,7 @@ namespace CG_TechPro.Models
     public class Users
     {
         [Key]
-        public Guid U_Id { get; set; }
+        public int U_Id { get; set; }
 
         public required string UserName { get; set; }
 

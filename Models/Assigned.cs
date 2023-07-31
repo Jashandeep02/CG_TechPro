@@ -11,11 +11,9 @@ namespace CG_TechPro.Models
         [Key]
         public Guid A_Id { get; set; }
 
-        public Guid Emp_Code { get; set; }
+        public int Emp_Code { get; set; }
 
-        public Guid D_Id { get; set; }
-
-        public int MyProperty { get; set; }
+        public  int Id { get; set; }
 
          public DateTime AssignedAtUTC { get; set; }
 

@@ -8,8 +8,9 @@ namespace CG_TechPro.Models
 {
     public class Inventory
     {
-        [Key]
         public Guid I_Id { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         public Guid D_Id { get; set; }
 

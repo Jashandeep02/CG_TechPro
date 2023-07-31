@@ -12334,11 +12334,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\CG_TechPro\\final.csproj",
+      "projectUniqueName": "d:\\final\\CG_TechPro\\final.csproj",
       "projectName": "final",
-      "projectPath": "d:\\CG_TechPro\\final.csproj",
+      "projectPath": "d:\\final\\CG_TechPro\\final.csproj",
       "packagesPath": "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\",
-      "outputPath": "d:\\CG_TechPro\\obj\\",
+      "outputPath": "d:\\final\\CG_TechPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
