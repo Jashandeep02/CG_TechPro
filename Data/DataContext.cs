@@ -17,7 +17,7 @@ namespace CG_TechPro.Data
 
         public DbSet<Users> Users { get; set; }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employee { get; set; }
 
         public DbSet<Devices> Devices { get; set; }
 

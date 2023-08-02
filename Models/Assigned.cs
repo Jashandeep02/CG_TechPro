@@ -9,13 +9,13 @@ namespace CG_TechPro.Models
     public class Assigned
     {
         [Key]
-        public Guid A_Id { get; set; }
+        public int A_Id { get; set; }
 
         public int Emp_Code { get; set; }
 
         public  int Id { get; set; }
 
-         public DateTime AssignedAtUTC { get; set; }
+         public DateTime? AssignedAtUTC { get; set; }
 
          public required string AssignedBy { get; set; }
     }

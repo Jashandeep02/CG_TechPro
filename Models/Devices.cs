@@ -15,10 +15,10 @@ namespace CG_TechPro.Models
 
         public DateTime CreatedAtUTC { get; set; }
 
-        public DateTime UpdatedAtUTC { get; set; }
+        public DateTime? UpdatedAtUTC { get; set; }
 
         public required string CreatedBy { get; set; }
 
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
     }
 }

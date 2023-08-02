@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2oydAtr7eneMJIbYBVrv2dbO0sNVBbPb66Uj4xAKQDK1FchlB/axt0cnxXRwrBp+pUlkr7mmLPDza+s/PPt5oA==",
+  "dgSpecHash": "njv6ExXcNj+QHqkWeUlEm1eyJdt70/9+eO57XB2/3LWu1/S1eHmF5YrwqoG94REP+hWSIXLWWFfpoVUICuIgaQ==",
   "success": true,
-  "projectFilePath": "D:\\final\\cg_TechPro\\final.csproj",
+  "projectFilePath": "D:\\final\\CG_TechPro\\final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Jashandeep.Singla\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

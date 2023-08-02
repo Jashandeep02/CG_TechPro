@@ -7,6 +7,7 @@ using CG_TechPro.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
 namespace final.Controllers{
     public class HomeController : Controller
@@ -92,7 +93,7 @@ namespace final.Controllers{
             return BadRequest("Invalid");
         }
 
-         [HttpPost]
+        [HttpPost]
         [Route("Admit")]
         public IActionResult PostUser([FromBody] Users user){
             string salt = BCrypt.Net.BCrypt.GenerateSalt();
@@ -104,6 +105,17 @@ namespace final.Controllers{
             _context.Users.Add(users);
             _context.SaveChanges();
             return Ok();
+        }
+
+
+        [HttpPost]
+        [Route("employee")]
+        public IActionResult PostE (string name , string createdBy , bool isAdmin){
+            var data = new Employee {Name = name , CreatedBy = createdBy , IsAdmin = isAdmin};
+            _context.Employee.Add(data);
+            _context.SaveChanges();
+            return Ok();
+
         }
 
         [HttpPost("/Home/Admin")]
@@ -126,8 +138,49 @@ namespace final.Controllers{
         }
         return Json(new {success = true});
     }
+    
+    [HttpGet]
+    [Route("/Home/Admin/ShowDevices")]
+    public IActionResult GetDevices()
+    {
+        var devices = (from d in _context.Devices
+               join i in _context.Inventory on d.D_Id equals i.D_Id
+               select new
+               {
+                   DeviceId = d.D_Id,
+                   DeviceType = d.D_Type,
+                   InventoryId = i.I_Id
+               }).ToList();
+
+        return Json(devices);
+    }       
 
 
+    [HttpPost]
+    [Route("/Home/Admin/Assigned")]
+    public JsonResult AssignDeviceToEmployee([FromBody] AssignDeviceRequest assign)
+    {
+        string user =  _accessor.HttpContext.Session.GetString("UserId");
+        var employee = _context.Employee.Find(assign.empCode);
+        var inventory = _context.Inventory.FirstOrDefault(i => i.Id == assign.id && i.D_State == 'U');
+
+        if (employee == null || inventory == null )
+        {
+            return Json(new{success=false , message = "Employee or inventory not found"});
+        }
+        // Create an entry in the Assigned table to track the assignment
+        var assigned = new Assigned
+        {
+            Emp_Code = assign.empCode,
+            Id = assign.id,
+            AssignedBy = user,
+            AssignedAtUTC = DateTime.Now
+        };
+        _context.Assigned.Add(assigned);
+        _context.SaveChanges();
+
+        return   Json(new{success=true});;
+    }
     // [HttpGet]
     // [Route("/Home/Admin/GetData")]
     // public IActionResult GetData(Guid userId){
