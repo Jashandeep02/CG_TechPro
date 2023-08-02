@@ -268,12 +268,21 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   function showAddDevice() {
-    var addDeviceContainer = document.querySelector(".container.Add");
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+    var addDeviceContainer3 = document.querySelector(".container.Add");
     if (addDeviceContainer) {
       var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      if (displayStyle === "none") {
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+      if (displayStyle3 === "none") {
         // If the element is hidden, show it
-        addDeviceContainer.style.display = "block";
+        addDeviceContainer.style.display = "none";
+        addDeviceContainer1.style.display = "none";
+        addDeviceContainer2.style.display = "none";     
+        addDeviceContainer3.style.display = "block";
       } else {
         // If the element is visible, hide it
         addDeviceContainer.style.display = "none";
@@ -283,12 +292,21 @@
     }
   }
   function showAssign() {
-    var addDeviceContainer = document.querySelector(".container-fluid.AssignDevice");
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+    var addDeviceContainer3 = document.querySelector(".container.Add");
     if (addDeviceContainer) {
       var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      if (displayStyle === "none") {
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+      if (displayStyle2 === "none") {
         // If the element is hidden, show it
-        addDeviceContainer.style.display = "block";
+        addDeviceContainer.style.display = "none";
+        addDeviceContainer1.style.display = "none";
+        addDeviceContainer3.style.display = "none";
+        addDeviceContainer2.style.display = "block";
       } else {
         // If the element is visible, hide it
         addDeviceContainer.style.display = "none";
@@ -298,12 +316,21 @@
     }
   }
   function DeviceStatus() {
-    var addDeviceContainer = document.querySelector(".container.DeviceStatus");
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+    var addDeviceContainer3 = document.querySelector(".container.Add");
     if (addDeviceContainer) {
       var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      if (displayStyle === "none") {
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+      if (displayStyle1 === "none") {
         // If the element is hidden, show it
-        addDeviceContainer.style.display = "block";
+        addDeviceContainer.style.display = "none";
+        addDeviceContainer2.style.display = "none";
+        addDeviceContainer3.style.display = "none";
+        addDeviceContainer1.style.display = "block";
       } else {
         // If the element is visible, hide it
         addDeviceContainer.style.display = "none";
@@ -314,11 +341,20 @@
   }
   function showUsers() {
     var addDeviceContainer = document.querySelector(".container.UserStatus");
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+    var addDeviceContainer3 = document.querySelector(".container.Add");
     if (addDeviceContainer) {
       var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
       if (displayStyle === "none") {
         // If the element is hidden, show it
         addDeviceContainer.style.display = "block";
+        addDeviceContainer1.style.display = "none";
+        addDeviceContainer2.style.display = "none";
+        addDeviceContainer3.style.display = "none";
       } else {
         // If the element is visible, hide it
         addDeviceContainer.style.display = "none";
