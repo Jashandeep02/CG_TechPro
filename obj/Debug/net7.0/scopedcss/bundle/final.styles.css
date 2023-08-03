@@ -1,253 +1,70 @@
 /* _content/final/Views/Shared/_Layout.cshtml.rz.scp.css */
 a.navbar-brand[b-fz4djakgen] {
-
-
-
   white-space: normal;
-
-
-
   text-align: center;
-
-
-
   word-break: break-all;
-
-
-
-
-
-
-
 }
-
 .navbar[b-fz4djakgen] {
-
   background-color: #454545;
-  ;
-
 }
-
 *[b-fz4djakgen] {
-
-
-
   font-family: 'Poppins', sans-serif;
-
-
-
 }
-
-
-
-
-
-
-
 a[b-fz4djakgen] {
-
-
-
   color: white;
-
-
-
 }
-
-
-
-*[b-fz4djakgen] {
-
-
-
-  font-family: 'Poppins', sans-serif;
-
-
-
-}
-
-
-
-
-
-
-
-
-
 .btn-primary[b-fz4djakgen] {
-
-
-
   color: #fff;
-
-
-
   background-color: #1b6ec2;
-
-
-
   border-color: #1861ac;
-
-
-
 }
-
-
-
-
-
-
-
-
-
 .nav-pills .nav-link.active[b-fz4djakgen],
 .nav-pills .show>.nav-link[b-fz4djakgen] {
-
-
-
   color: #fff;
-
-
-
   background-color: #1b6ec2;
-
-
-
   border-color: #1861ac;
-
-
-
 }
-
-
-
-
-
-
-
-
-
 .border-top[b-fz4djakgen] {
-
-
-
   border-top: 1px solid #e5e5e5;
-
-
-
 }
-
-
-
 .border-bottom[b-fz4djakgen] {
-
-
-
   border-bottom: 1px solid #e5e5e5;
-
-
-
 }
-
-
-
-
-
-
-
-
-
 .box-shadow[b-fz4djakgen] {
-
-
-
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-
-
-
 }
-
-
-
-
-
-
-
-
-
 button.accept-policy[b-fz4djakgen] {
-
-
-
   font-size: 1rem;
-
-
-
   line-height: inherit;
-
-
-
 }
-
-
-
-
-
-
-
-
-
 .footer[b-fz4djakgen] {
-
-
-
   position: absolute;
-
-
-
   bottom: 0;
-
-
-
   width: 100%;
-
-
-
   white-space: nowrap;
-
-
-
   line-height: 60px;
-
   background-color: #454545;
-  ;
-
   text-align: center;
-
   color: white;
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 #nav-logo[b-fz4djakgen] {
-
-
-
   height: 50px;
-
-
-
+}
+.dropdown-content[b-fz4djakgen] {
+  display: none;
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  min-width: 120px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* Style for the hover pointer */
+.hover-pointer[b-fz4djakgen] {
+  cursor: pointer;
 }

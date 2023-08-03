@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\final.bundle.scp.css"
     },
     {
+      "Id": "D:\\final\\CG_TechPro\\wwwroot\\Images\\CG-Logo.png",
+      "PackagePath": "staticwebassets\\Images\\CG-Logo.png"
+    },
+    {
       "Id": "D:\\final\\CG_TechPro\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

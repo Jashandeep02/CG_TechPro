@@ -8,11 +8,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Microsoft.AspNetCore.Authentication;
 
-namespace final.Controllers{
+namespace final.Controllers
+{
     public class HomeController : Controller
     {
-        
+
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _accessor;
 
@@ -50,7 +52,7 @@ namespace final.Controllers{
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key_here"));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expirationMinutes = 1; 
+            var expirationMinutes = 1;
             var expirationTime = DateTime.UtcNow.AddMinutes(expirationMinutes);
 
             var token = new JwtSecurityToken(
@@ -68,7 +70,7 @@ namespace final.Controllers{
         [Route("/Home/Index")]
         public ActionResult Login(Users user)
         {
-            if(string.IsNullOrEmpty(user.UserName)|| string.IsNullOrEmpty(user.Password))
+            if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
             {
                 return View("Index");
             }
@@ -77,8 +79,9 @@ namespace final.Controllers{
             {
                 return BadRequest("Invalid domain.");
             }
-            var users = _context.Users.FirstOrDefault(u=>u.UserName==user.UserName);
-            if(users == null){
+            var users = _context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+            if (users == null)
+            {
                 return BadRequest("Invalid user");
             }
             bool VerifyPass = BCrypt.Net.BCrypt.Verify(user.Password, users.Password);
@@ -87,7 +90,9 @@ namespace final.Controllers{
                 var token = GenerateJwtToken(users);
                 _accessor.HttpContext.Session.SetString("jwtToken", token);
                 var Id = users.U_Id;
-                _accessor.HttpContext.Session.SetString("UserId" , Id.ToString());
+                _accessor.HttpContext.Session.SetString("UserId", Id.ToString());
+                var Name = users.UserName;
+                _accessor.HttpContext.Session.SetString("Name" , Name);
                 return RedirectToAction("Admin");
             }
             return BadRequest("Invalid");
@@ -95,12 +100,14 @@ namespace final.Controllers{
 
         [HttpPost]
         [Route("Admit")]
-        public IActionResult PostUser([FromBody] Users user){
+        public IActionResult PostUser([FromBody] Users user)
+        {
             string salt = BCrypt.Net.BCrypt.GenerateSalt();
-            string HashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password , salt);
-            var users = new Users {
-            UserName = user.UserName,
-            Password = HashedPassword,
+            string HashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password, salt);
+            var users = new Users
+            {
+                UserName = user.UserName,
+                Password = HashedPassword,
             };
             _context.Users.Add(users);
             _context.SaveChanges();
@@ -110,8 +117,9 @@ namespace final.Controllers{
 
         [HttpPost]
         [Route("employee")]
-        public IActionResult PostE (string name , string createdBy , bool isAdmin){
-            var data = new Employee {Name = name , CreatedBy = createdBy , IsAdmin = isAdmin};
+        public IActionResult PostE(string name, string createdBy, bool isAdmin)
+        {
+            var data = new Employee { Name = name, CreatedBy = createdBy, IsAdmin = isAdmin };
             _context.Employee.Add(data);
             _context.SaveChanges();
             return Ok();
@@ -119,74 +127,98 @@ namespace final.Controllers{
         }
 
         [HttpPost("/Home/Admin")]
-        public  JsonResult addDevice(string deviceType, int count, string specifications)
+        public JsonResult addDevice(string deviceType, int count, string specifications)
         {
             string Id = _accessor.HttpContext.Session.GetString("UserId");
-            var data = new Devices { D_Type = deviceType,CreatedAtUTC=DateTime.Now,UpdatedAtUTC=DateTime.Now, CreatedBy=Id};
+            var data = new Devices { D_Type = deviceType, CreatedAtUTC = DateTime.Now, UpdatedAtUTC = DateTime.Now, CreatedBy = Id };
             _context.Devices.Add(data);
-             for (int i = 0; i < count; i++)
-            {           
+            for (int i = 0; i < count; i++)
+            {
                 var deviceData = _context.Devices.Find(data.D_Id);
-                if(deviceData != null){   
-                   Guid serial = Guid.NewGuid();
-                   Guid Iid = Guid.NewGuid();
-                    var data1=new Inventory {I_Id = Iid, Specifications=specifications ,CreatedBy=deviceData.CreatedBy, D_State='U', Serial = serial};
+                if (deviceData != null)
+                {
+                    Guid serial = Guid.NewGuid();
+                    Guid Iid = Guid.NewGuid();
+                    var data1 = new Inventory { I_Id = Iid, Specifications = specifications, CreatedBy = deviceData.CreatedBy, D_State = 'U', Serial = serial };
                     data1.D_Id = deviceData.D_Id;
-                    _context.Inventory.Add(data1);          
+                    _context.Inventory.Add(data1);
                 }
+                _context.SaveChanges();
+            }
+            return Json(new { success = true });
+        }
+
+        [HttpGet]
+        [Route("/Home/Admin/ShowDevices")]
+        public IActionResult GetDevices()
+        {
+            var devices = (from d in _context.Devices
+                           join i in _context.Inventory on d.D_Id equals i.D_Id
+                           select new
+                           {
+                               serialNo = i.Serial,
+                               inventoryId = i.Id,
+                               specification = i.Specifications,
+                               deviceType = d.D_Type,
+                           }).ToList();
+            return Json(devices);
+
+        }
+
+
+        [HttpPost]
+        [Route("/Home/Admin/Assigned")]
+        public JsonResult AssignDeviceToEmployee([FromBody] AssignDeviceRequest assign)
+        {
+            string user = _accessor.HttpContext.Session.GetString("UserId");
+            var employee = _context.Employee.Find(assign.empCode);
+            var inventory = _context.Inventory.FirstOrDefault(i => i.Id == assign.id && i.D_State == 'U');
+
+            if (employee == null || inventory == null)
+            {
+                return Json(new { success = false, message = "Employee or inventory not found" });
+            }
+            // Create an entry in the Assigned table to track the assignment
+            var assigned = new Assigned
+            {
+                Emp_Code = assign.empCode,
+                Id = assign.id,
+                AssignedBy = user,
+                AssignedAtUTC = DateTime.Now
+            };
+            _context.Assigned.Add(assigned);
             _context.SaveChanges();
+
+            return Json(new { success = true }); ;
         }
-        return Json(new {success = true});
-    }
-    
+
+        [HttpGet]
+        [Route("/Home/Admin/GetAssignedDevices/{empCode}")]
+        public IActionResult GetAssignedDevices(int empCode)
+        {
+            var assignedDevices = (from a in _context.Assigned
+                                   join i in _context.Inventory on a.Id equals i.Id
+                                   join d in _context.Devices on i.D_Id equals d.D_Id
+                                   where a.Emp_Code == empCode
+                                   select new
+                                   {
+                                       DeviceType = d.D_Type,
+                                       Specifications = i.Specifications,
+                                       InventoryId = i.Id,
+                                       SerialNo = i.Serial
+                                   }).ToList();
+            return Json(assignedDevices);
+        }
+
+
     [HttpGet]
-    [Route("/Home/Admin/ShowDevices")]
-    public IActionResult GetDevices()
-    {
-        var devices = (from d in _context.Devices
-               join i in _context.Inventory on d.D_Id equals i.D_Id
-               select new
-               {
-                   DeviceId = d.D_Id,
-                   DeviceType = d.D_Type,
-                   InventoryId = i.I_Id
-               }).ToList();
-
-        return Json(devices);
-    }       
-
-
-    [HttpPost]
-    [Route("/Home/Admin/Assigned")]
-    public JsonResult AssignDeviceToEmployee([FromBody] AssignDeviceRequest assign)
-    {
-        string user =  _accessor.HttpContext.Session.GetString("UserId");
-        var employee = _context.Employee.Find(assign.empCode);
-        var inventory = _context.Inventory.FirstOrDefault(i => i.Id == assign.id && i.D_State == 'U');
-
-        if (employee == null || inventory == null )
+    [Route("/Home/Admin/logout")]
+        public async Task<IActionResult> Logout()
+ 
         {
-            return Json(new{success=false , message = "Employee or inventory not found"});
+            await HttpContext.SignOutAsync();
+            return Ok(new { message = "Logout successful." });
         }
-        // Create an entry in the Assigned table to track the assignment
-        var assigned = new Assigned
-        {
-            Emp_Code = assign.empCode,
-            Id = assign.id,
-            AssignedBy = user,
-            AssignedAtUTC = DateTime.Now
-        };
-        _context.Assigned.Add(assigned);
-        _context.SaveChanges();
-
-        return   Json(new{success=true});;
-    }
-    // [HttpGet]
-    // [Route("/Home/Admin/GetData")]
-    // public IActionResult GetData(Guid userId){
-    //     var username = _context.Users.FirstOrDefault(u => u.U_Id == userId)?.UserName;
-    //     var devT = _context.Assigned.FirstOrDefault(d => d. == userId)?.D_Type;
-    // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

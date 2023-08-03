@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G+sYaq6nKQ7V3M19GPHZJwQY8JZXrGfZVG7qfp63bYo=",
+  "Hash": "m9xgI/i8HUdMNlBFkErVVlU05ABJZgVL7UYlLQ5DIQA=",
   "Source": "final",
   "BasePath": "_content/final",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\final\\CG_TechPro\\wwwroot\\Images\\CG-Logo.png",
+      "SourceId": "final",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\final\\CG_TechPro\\wwwroot\\",
+      "BasePath": "_content/final",
+      "RelativePath": "Images/CG-Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\CG-Logo.png"
     },
     {
       "Identity": "D:\\final\\CG_TechPro\\wwwroot\\js\\site.js",

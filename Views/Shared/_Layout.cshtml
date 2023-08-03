@@ -1,199 +1,97 @@
-﻿<!DOCTYPE html>
-
- 
-
+﻿@inject IHttpContextAccessor accessor;
+<!DOCTYPE html>
 <html lang="en">
 
- 
-
 <head>
-
- 
-
     <meta charset="utf-8" />
-
- 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
- 
-
-    <title>@ViewData["Title"] - final</title>
-
+    <title>@ViewData["Title"]TechPro</title>
+    @* <link
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrJYPsBQgH6FFVmt2cYm1O6ae4gS255InfX1HGnJvXwpwZxMAr0hkRFEXwPMwBndZBWSc&usqp=CAU"
+    rel="shortcut icon" type="image/x-icon" /> *@
+    <link rel="icon" type="image/x-icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrJYPsBQgH6FFVmt2cYm1O6ae4gS255InfX1HGnJvXwpwZxMAr0hkRFEXwPMwBndZBWSc&usqp=CAU">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
- 
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
- 
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
- 
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
- 
-
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
- 
-
     <link rel="stylesheet" href="~/final.styles.css" asp-append-version="true" />
-
- 
-
 </head>
 
- 
-
 <body>
-
- 
-
     <header>
-
- 
-
-        
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
-
- 
-
-            <div class="container-fluid">
-
- 
-
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+            <div class="container-fluid ">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-
- 
-
- 
-
- 
-
- 
-
-                     <img id="nav-logo"src="https://i.ibb.co/tLSJPhD/Fitchit-removebg-preview.png">
-
- 
-
+                    <img id="nav-logo" src="https://i.ibb.co/tLSJPhD/Fitchit-removebg-preview.png">
                 </a>
-
- 
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-
- 
-
-                        aria-expanded="false" aria-label="Toggle navigation">
-
- 
-
-                    <span class="navbar-toggler-icon"></span>
-
- 
-
-                </button>
-
- 
-
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
- 
-
-                    <ul class="navbar-nav flex-grow-1">
-
- 
-
-                     
-
- 
-
-                    </ul>
-
- 
-
-                </div>
-
- 
-
+                <ul class="navbar-nav ml-auto dropdown ">
+                    <div id="combinedstring" class="text-white text-lg p-3 mb-0 hover-pointer"
+                        style="border:1px solid rgb(255, 174, 0); border-radius:2em" onclick="toggleDropdownMenu()">
+                    </div>
+                    <div id="dropdownMenu" class="dropdown-content" style="display:none">
+                        <div class="text-dark">@accessor.HttpContext.Session.GetString("Name")</div>
+                        <div class="text-dark"><a>Setting</a></div>
+                        <div  onclick="logout()"><a href="" class="text-dark text-decoration-none">Logout</a></div>
+                        <li class="nav-item text-dark" id="userInitials" style="display:none;">
+                            @accessor.HttpContext.Session.GetString("Name");</li>
+                </ul>
             </div>
-
- 
-
         </nav>
- 
-
     </header>
-
- 
-
     <div class="container">
-
- 
-
         <main role="main" class="pb-3">
-
- 
-
             @RenderBody()
-
- 
-
         </main>
-
- 
-
     </div>
-
- 
-
- 
-
- 
-
- 
-
     <footer class="border-top footer  ">
-
- 
-
         <div class="container">
-
- 
-
-            &copy; @DateTime.UtcNow.Year - CG_TechPro
-
- 
-
+            &copy; @DateTime.UtcNow.Year - CGTechPro
         </div>
-
- 
-
     </footer>
-
- 
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
- 
-
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
- 
-
     <script src="~/js/site.js" asp-append-version="true"></script>
-
- 
-
     @await RenderSectionAsync("Scripts", required: false)
-
- 
-
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var initialName = document.getElementById("userInitials").innerText.trim();
+    var trimValue = initialName.split(".")[1];
+    var initialArr = [initialName.substring(0, 1).toUpperCase(), trimValue.substring(0, 1).toUpperCase()];
+    var combinedString = initialArr.join('');
+    var element = document.getElementById("combinedstring");
+    if (element) {
+      element.textContent = combinedString;
+      element.style.display = "flex";
+    } else {
+      console.error("Element with ID 'combinedstring' not found.");
+    }
+  });
+function toggleDropdownMenu() {
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    }
+function logout(){
+    // Logout function
+      fetch('/Home/Admin/logout', {
+            method: 'POST'
+        }).then(response => {
+            if (response.ok) {
+                // Redirect to the desired logout page or perform other actions
+               // For demonstration purposes, show an alert message
+               @* alert("logout") *@
+                window.location.href = '/Home/Index'; // Redirect to the logout page
+            } else {
+                // Handle logout failure
+                alert('Logout failed.'); // For demonstration purposes, show an alert message
+            }
+        }).catch(error => {
+            console.error('Logout error:', error);
+            alert('Logout failed.'); // For demonstration purposes, show an alert message
+        });
+    }
+</script>
 </body>
-
- 
 
 </html>
