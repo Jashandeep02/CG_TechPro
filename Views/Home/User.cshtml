@@ -1,142 +1,120 @@
 @inject IHttpContextAccessor accessor;
-
 @{
-
     ViewData["Title"] = "User Page";
-
 }
-
-
-
-
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <title>@ViewData["Title"]</title>
-
     <!-- Include Bootstrap CSS -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         body {
-
             margin: 0;
-
-            padding: 0;
-
+           padding: 0;
         }
-
-
-
-
         .centered-container {
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: center;
-
             align-items: center;
-
-            min-height: 100vh;
-
+            min-height: 78vh;
             background-color: #f7f7f7;
-
             margin-bottom: 5%;
-
         }
-
-
-
-
-        h2,
-        h5 {
-
+        h2, h5 {
             text-align: center;
-
             color: rgb(2, 2, 73);
-
             font-size: 50px;
-
             transform: scale(0.7);
-
             transition: transform 2s ease;
-
             margin-bottom: 10px;
-
         }
-
-
-
-
         h5 {
-
             font-size: 24px;
-
             margin-bottom: 20px;
-
         }
-
-
-
-
         .btn {
-
             font-size: 30px;
-
         }
-
+ 
         .btn-warning {
             /* Customize button size */
             padding: 10px 20px;
             font-size: 20px;
         }
-
         .zoom-in {
             transform: scale(1);
         }
+        /* Hide the table by default */
+        #deviceTableDiv {
+            display: none;
+        }
     </style>
-
-    <script>
-
-        window.onload = function () {
-
-            var h2Element = document.querySelector('h2');
-
-            var h5Element = document.querySelector('h5');
-
-            h2Element.classList.add('zoom-in');
-
-            h5Element.classList.add('zoom-in');
-
-        };
-
-    </script>
-
 </head>
-
 <body>
-
     <div class="centered-container">
-
         <h2>Welcome to CGTechPro</h2>
-
         <h5>Your very own IT assistant</h5>
-
         <!-- Add Bootstrap classes to the button -->
-
-        <button class="btn btn-warning ">Show my devices</button>
+        <button id="showDevicesBtn" class="btn btn-warning">Show my devices</button>
+        <div class="container mt-5 mb-3" id="deviceTableDiv">
+            <table class="table table-bordered" id="deviceTable">
+                <thead>
+                    <tr>
+                        <th>Serial No</th>
+                        <th>Device Type</th>
+                        <th>Specifications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be dynamically populated using JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
-
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap dropdowns and other components) -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        window.onload = function () {
+            var h2Element = document.querySelector('h2');
+            var h5Element = document.querySelector('h5');
+            h2Element.classList.add('zoom-in');
+            h5Element.classList.add('zoom-in');
+            // Button click event handler
+            document.getElementById('showDevicesBtn').addEventListener('click', function () {
+                // Show the table container when the button is clicked
+                document.getElementById('deviceTableDiv').style.display = 'block';
+                // Fetch the user ID from session storage
+                var userId = sessionStorage.getItem('UserId');
+                // Send an AJAX request to the server to get user-specific device data
+                fetch('/Home/Admin/GetUserDevices', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    // Populate the table with the device data
+                    var deviceTable = document.getElementById('deviceTable');
+                    var tableBody = deviceTable.querySelector('tbody');
+                    tableBody.innerHTML = ''; // Clear previous data if any
+                    data.forEach(function (device) {
+                        var row = document.createElement('tr');
+                        row.innerHTML = '<td>' + device.serialNo + '</td>' +
+                                        '<td>' + device.deviceType + '</td>' +
+                                        '<td>' + device.specification + '</td>';
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(function (error) {
+                    console.log('Error fetching device data:', error);
+                });
+            });
+        };
+    </script>
 </body>
-
 </html>

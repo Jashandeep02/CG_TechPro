@@ -1,658 +1,1396 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
   .fa-2x {
+
     font-size: 2em;
+
   }
+
+
 
   .fa {
+
     position: relative;
+
     display: table-cell;
+
     width: 60px;
+
     height: 36px;
+
     text-align: center;
+
     vertical-align: middle;
+
     font-size: 20px;
+
   }
+
+
 
   .main-menu:hover,
+
   nav.main-menu.expanded {
+
     width: 250px;
+
     overflow: visible;
+
   }
+
+
 
   .main-menu {
+
     background: #45454500;
+
     border-left: 1px solid #e5e5e5;
+
     position: absolute;
+
     left: 0;
+
     width: 50px;
+
     overflow: hidden;
-    -webkit-transition: width linear;
-    transition: width linear;
+
+    -webkit-transition: width 0.5s linear;
+
+    transition: width 0.5s linear;
+
     -webkit-transform: translateZ(0) scale(1, 1);
+
     z-index: 1000;
+
   }
+
+
 
   .main-menu>ul {
+
     margin: 100px 0;
+
   }
+
+
 
   .main-menu li {
+
     position: relative;
+
     display: block;
+
     width: 250px;
+
   }
+
+
 
   .main-menu button {
+
     position: relative;
+
     display: table;
+
     border-collapse: collapse;
+
     border-spacing: 0;
+
     color: #999;
+
     font-family: arial;
+
     font-size: 14px;
+
     text-decoration: none;
+
     -webkit-transform: translateZ(0) scale(1, 1);
+
     -webkit-transition: all .1s linear;
+
     transition: all .1s linear;
+
     width: 100%;
+
     background: none;
+
     border: none;
+
     padding: 0;
+
   }
+
+
 
   .main-menu .nav-icon {
+
     position: relative;
+
     display: table-cell;
+
     width: 60px;
+
     height: 36px;
+
     text-align: center;
+
     vertical-align: middle;
+
     font-size: 18px;
+
   }
 
+
+
   .main-menu .nav-text {
+
     position: relative;
+
     display: table-cell;
+
     vertical-align: middle;
+
     width: 190px;
+
     font-family: 'Titillium Web', sans-serif;
+
   }
+
+
+
 
 
   @*.no-touch.scrollable.hover{overflow-y:hidden;}.no-touch.scrollable.hover:hover{overflow-y:auto;overflow:visible;}*@a:hover,
+
   a:focus {
+
     text-decoration: none;
+
   }
+
+
 
   nav {
+
     -webkit-user-select: none;
+
     -moz-user-select: none;
+
     -ms-user-select: none;
+
     -o-user-select: none;
+
     user-select: none;
+
   }
+
+
 
   nav ul,
+
   nav li {
+
     outline: 0;
+
     margin: 0;
+
     padding: 0;
+
   }
+
+
 
   .main-menu li:hover button,
+
   nav.main-menu li.active button,
+
   .dropdown-menu>li button:hover,
+
   .dropdown-menu>li button:focus,
+
   .dropdown-menu>.active button,
+
   .dropdown-menu>.active button:hover,
+
   .dropdown-menu>.active button:focus,
+
   .no-touch .dashboard-page nav.dashboard-menu ul li:hover button,
+
   .dashboard-page nav.dashboard-menu ul li.active button {
+
     color: #fff;
+
     background-color: #454545;
+
   }
 
-  .container.Add,
-  .container-fluid.AssignDevice,
-  .container.DeviceStatus,
-  .container.UserStatus {
+
+
+  .container.Add {
+
     display: none;
-    /* Hide all containers initially */
-    max-width: 600px;
-    /* Set the maximum width for the form containers */
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
+
+    margin-top: 147px;
+
+    margin-bottom: 147px;
+
+    width: 400px;
+
+
+
+
+
+
+
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
-  }
+
+
+
+
+
 
   .card {
+
     margin: 0.5%;
+
   }
+
+
 
   .cardAd {
+
     border: 0px;
+
   }
+
+
 
   .but {
+
     background-color: rgb(255, 174, 0);
+
     color: black;
+
     border: none;
+
     border-radius: 5px;
+
     cursor: pointer;
+
     padding: 8px 15px;
-    width: 100%;
+
+    width: 50%;
+
   }
 
+
+
   .button {
+
     margin-top: 10px;
+
     padding: 8px 15px;
+
     background-color: rgb(255, 174, 0);
+
     color: black;
+
     border: none;
+
     border-radius: 5px;
+
     cursor: pointer;
+
   }
+
+
 
   .centered-container {
 
+
+
     display: flex;
+
+
 
     flex-direction: column;
 
+
+
     justify-content: center;
+
+
 
     align-items: center;
 
+
+
     min-height: 71vh;
+
+
 
     margin-bottom: 5%;
 
+
+
   }
 
+
+
+  .AssignDevice {
+
+    display: none;
+
+    margin-top: 147px;
+
+    margin-bottom: 147px;
+
+
+
+  }
+
+  .DeviceStatus {
+
+    display: none;
+
+    margin-top: 147px;
+
+    margin-bottom: 147px;
+
+  }
+
+
+
+  .UserStatus {
+
+    display: none;
+
+    margin-top: 147px;
+
+    margin-bottom: 147px;
+
+
+
+  }
 
 
 
   h2,
+
   h5 {
+
+
 
     text-align: center;
 
+
+
     color: rgb(2, 2, 73);
+
+
 
     font-size: 50px;
 
+
+
     transform: scale(0.7);
+
+
 
     transition: transform 2s ease;
 
+
+
     margin-bottom: 10px;
 
+
+
   }
+
+
+
+
+
 
 
 
 
   h5 {
 
+
+
     font-size: 24px;
+
+
 
     margin-bottom: 20px;
 
+
+
   }
+
+
+
+
+
 
 
 
 
   .btn {
 
+
+
     font-size: 30px;
 
+
+
   }
+
+
 
   .btn-warning {
+
     /* Customize button size */
+
     padding: 10px 20px;
+
     font-size: 20px;
+
   }
 
+
+
   .zoom-in {
+
     transform: scale(1);
+
   }
 </style>
 
+
+
 <script>
+
+
 
   window.onload = function () {
 
+
+
     var h2Element = document.querySelector('h2');
+
+
 
     var h5Element = document.querySelector('h5');
 
+
+
     h2Element.classList.add('zoom-in');
+
+
 
     h5Element.classList.add('zoom-in');
 
+
+
   };
 
+
+
 </script>
+
 <div class="area"></div>
+
 <nav class="main-menu">
+
   <ul>
+
     <li>
+
       <button type="button" onclick="showAddDevice()" class="but">
+
         <i class="fa fa-plus fa-2x"></i>
+
         <span class="nav-text">
+
           Add Device
+
         </span>
+
       </button>
+
     </li>
+
     <li class="has-subnav">
+
       <button type="button" class="but" onclick="showAssign()">
+
         <i class="fa fa-address-book fa-2x"></i>
+
         <span class="nav-text">
+
           Assign Device
+
         </span>
+
       </button>
+
     </li>
+
     <li class="has-subnav">
+
       <button type="button" class="but" onclick="DeviceStatus()">
+
         <i class="fa fa-laptop fa-2x"></i>
+
         <span class="nav-text">
+
           Device Status
+
         </span>
+
       </button>
+
     </li>
+
     <li class="has-subnav">
+
       <button type="button" class="but" onclick="showUsers()">
+
         <i class="fa fa-user-circle fa-2x"></i>
+
         <span class="nav-text">
+
           User Status
+
         </span>
+
       </button>
+
     </li>
+
   </ul>
+
 </nav>
+
+
+
 
 
 <div class="centered-container">
 
+
+
   <h2>Welcome to CGTechPro</h2>
+
+
 
   <h5>Your very own IT assistant</h5>
 
+
+
   <!-- Add Bootstrap classes to the button -->
 
+
+
   @* <button class="btn btn-warning ">Show my devices</button> *@
+
 </div>
+
+
+
+
+
 
 
 
 
 <!-- Add Device -->
-<div class="container Add">
-  <h1 class="my-2">Add Device</h1>
+
+<div class="container Add ">
+
+  <h1 class="d-flex justify-content-center mb-2">Add Device</h1>
+
   <form asp-controller="Home" asp-action="Admin" method="post">
+
     <div class="form-group">
+
       <label for="deviceType">Device Type<span class="text-danger">*</span></label>
+
       <input type="text" class="form-control" id="deviceType" name="deviceType" placeholder="Enter Your device"
-        required>
+        required list="devices" oninput="searchDevices()" autocomplete="off" />
+
+      <datalist id="devices">
+
+          <!-- The list of devices will be populated dynamically -->
+
+      </datalist>
+
     </div>
+
     <div class="form-group">
+
       <label for="count">Count<span class="text-danger">*</span></label>
+
       <input type="number" class="form-control" id="count" name="count" placeholder="Number of devices you need to add"
         required>
+
     </div>
+
     <div class="form-group">
+
       <label for="specifications">Specifications<span class="text-danger">*</span></label>
+
       <input type="text" class="form-control" id="specifications" name="specifications" placeholder="specifications"
-        required>
+        required >
+
     </div>
-    <button type="submit" class="but" onclick="addDevice()">Add Device</button>
+
+    <div class="text-center  ">
+
+      <button type="submit" class="but" onclick="addDevice()">Add Device</button>
+
+    </div>
+
   </form>
+
 </div>
+
+
+
 
 
 <!-- Assign Device -->
-<div class="container-fluid AssignDevice">
-  <h1>Assign Device</h1>
+
+<div class="container-fluid AssignDevice" style="width:400px;">
+
+  <h1 class="d-flex justify-content-center">Assign Device</h1>
+
   <form asp-action="/Home/Admin/Assigned" method="post">
-    <div class="form-group">
+
+    <div class="form-group mb-3 ">
+
       <label for="empCode">User ID<span class="text-danger"> *</span></label>
+
       <input type="number" id="empCode" name="empCode" placeholder="Enter Employee Id" required class="form-control">
+
     </div>
-    <div class="form-group">
+
+    <div class="form-group mb-4">
+
       <label for="id">Serial Id<span class="text-danger"> *</span></label>
+
       <input type="number" id="id" name="id" placeholder="Enter Serail_no/Inventory ID" required class="form-control">
+
     </div>
-    <button type="button" class="but" onclick="assignDeviceToEmployee()">Assign Device</button>
+
+    <div class="d-flex justify-content-center">
+
+      <button type="button" class="but" onclick="assignDeviceToEmployee()">Assign Device</button>
+
+    </div>
+
   </form>
+
 </div>
 
 
-<div class="container  DeviceStatus mb-5">
+
+
+
+<div class="container DeviceStatus mb-5">
+
   <div class="row justify-content-center">
+
     <div class="col-md-6">
+
       <h1 class="text-center mb-4">Device Status</h1>
+
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search for devices">
+
+        <input type="text" class="form-control" placeholder="Search for devices" id="deviceTypeInput">
+
       </div>
+
       <div class="d-flex justify-content-center mb-3"> <!-- Center align the filters -->
+
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="assignedFilter">
+
+          <input name="deviceFilter" class="form-check-input" type="radio" id="assignedFilter">
+
           <label class="form-check-label" for="assignedFilter">Assigned</label>
+
         </div>
+
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="unassignedFilter">
+
+          <input name="deviceFilter" class="form-check-input" type="radio" id="unassignedFilter">
+
           <label class="form-check-label" for="unassignedFilter">Unassigned</label>
+
         </div>
+
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="repairFilter">
+
+          <input name="deviceFilter" class="form-check-input" type="radio" id="repairFilter">
+
           <label class="form-check-label" for="repairFilter">Repair</label>
+
         </div>
+
       </div>
+
       <div class="text-center">
+
         <button class="but" onclick="showDevices()">Show Devices</button> <!-- Show Devices button -->
+
       </div>
+
       <table class="table table-bordered mt-3" style="display: none;" id="deviceTable">
+
         <thead>
+
           <tr>
+
             <th>Device</th>
+
             <th>Specification</th>
+
             <th>Id</th>
+
             <th>Serial No.</th>
+
           </tr>
+
         </thead>
+
         <tbody id="deviceList"></tbody>
+
       </table>
+
     </div>
+
   </div>
+
 </div>
+
+
+
+
 
 
 
 <!-- User status -->
+
 <div class="container UserStatus ">
+
   <div class="row justify-content-center">
+
     <div class="col-md-6">
+
       <h1 class="text-center mb-4">User Status</h1> <!-- Added mb-4 class for margin-bottom -->
+
       <div class="input-group mb-3">
+
         <input type="text" class="form-control" id="empCodeInput" placeholder="Enter UserId">
+
       </div>
+
       <div class="text-center">
+
         <button class="but" onclick="getAssignedDevices()">Show All Devices</button>
+
       </div>
-       <table class="table table-bordered mt-3" style="display: none;" id="assignedDevicesTable">
+
+      <table class="table table-bordered mt-3" style="display: none;" id="assignedDevicesTable">
+
         <thead>
+
           <tr>
+
             <th>Device Type</th>
+
             <th>Specifications</th>
+
             <th>Inventory ID</th>
+
             <th>Serial No.</th>
+
           </tr>
+
         </thead>
+
         <tbody id="assignedDevicesList"></tbody>
+
       </table>
+
     </div>
+
   </div>
+
 </div>
 
 
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
-  function showAddDevice() {
-    var heading = document.querySelector(".centered-container");
-    var addDeviceContainer = document.querySelector(".container.UserStatus");
-    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
-    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
-    var addDeviceContainer3 = document.querySelector(".container.Add");
-    if (addDeviceContainer) {
-      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
-      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
-      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
-      if (displayStyle3 === "none") {
-        // If the element is hidden, show it
-        addDeviceContainer.style.display = "none";
-        addDeviceContainer1.style.display = "none";
-        addDeviceContainer2.style.display = "none";
-        addDeviceContainer3.style.display = "block";
-        heading.style.display = "none";
-      } else {
-        // If the element is visible, hide it
-        addDeviceContainer3.style.display = "none";
-        heading.style.display = "";
-      }
-    } else {
-      addDeviceContainer3.style.display = "none";
-      heading.style.display = "";
-    }
-  }
-  function showAssign() {
-    var heading = document.querySelector(".centered-container");
-    var addDeviceContainer = document.querySelector(".container.UserStatus");
-    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
-    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
-    var addDeviceContainer3 = document.querySelector(".container.Add");
-    if (addDeviceContainer) {
-      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
-      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
-      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
-      if (displayStyle2 === "none") {
-        // If the element is hidden, show it
-        addDeviceContainer.style.display = "none";
-        addDeviceContainer1.style.display = "none";
-        addDeviceContainer3.style.display = "none";
-        addDeviceContainer2.style.display = "block";
-        heading.style.display = "none";
-      } else {
-        // If the element is visible, hide it
-        addDeviceContainer2.style.display = "none";
-        heading.style.display = "";
-      }
-    } else {
-      addDeviceContainer2.style.display = "none";
-      heading.style.display = "";
-    }
-  }
-  function DeviceStatus() {
-    var heading = document.querySelector(".centered-container");
-    var addDeviceContainer = document.querySelector(".container.UserStatus");
-    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
-    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
-    var addDeviceContainer3 = document.querySelector(".container.Add");
-    if (addDeviceContainer) {
-      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
-      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
-      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
-      if (displayStyle1 === "none") {
-        // If the element is hidden, show it
-        addDeviceContainer.style.display = "none";
-        addDeviceContainer2.style.display = "none";
-        addDeviceContainer3.style.display = "none";
-        addDeviceContainer1.style.display = "block";
-        heading.style.display = "none";
-      } else {
-        // If the element is visible, hide it
-        addDeviceContainer1.style.display = "none";
-        heading.style.display = "";
-      }
-    } else {
-      addDeviceContainer1.style.display = "none";
-      heading.style.display = "";
-    }
-  }
-  function showUsers() {
-    var heading = document.querySelector(".centered-container");
-    var addDeviceContainer = document.querySelector(".container.UserStatus");
-    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
-    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
-    var addDeviceContainer3 = document.querySelector(".container.Add");
-    if (addDeviceContainer) {
-      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
-      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
-      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
-      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
-      if (displayStyle === "none") {
-        // If the element is hidden, show it
-        addDeviceContainer.style.display = "block";
-        addDeviceContainer1.style.display = "none";
-        addDeviceContainer2.style.display = "none";
-        addDeviceContainer3.style.display = "none";
-        heading.style.display = "none";
-      } else {
-        // If the element is visible, hide it
-        addDeviceContainer.style.display = "none";
-        heading.style.display = "";
-      }
-    } else {
-      addDeviceContainer.style.display = "none";
-      heading.style.display = "";
-    }
-  }
-  function addDevice() {
-    const deviceType = $('#deviceType').val();
-    const count = parseInt($('#count').val());
-    const specifications = $('#specifications').val();
-    const data = { deviceType, count, specifications };
-    // Make the POST request using jQuery's $.ajax method
-    $.ajax({
-      url: '/Home/Admin',
-      method: 'post',
-      contentType: 'application/json',
-      data: JSON.stringify(data),
-      success: function (result) {
-        if (result.success) {
-          // Show success message
-          alert('Device and Inventory added successfully.');
-          // Optionally, you can reset the form fields after a successful request
-          $('#deviceType').val('');
-          $('#count').val('');
-          $('#specifications').val('');
-          window.location.href = '/Home/Admin'
-        } else {
-          // Show error messageg
-          alert('Error: ' + result.message);
+
+
+  var filterStates = {
+    assignedFilter: false,
+    unassignedFilter: false,
+    repairFilter: false,
+  };
+
+  function toggleFilter(filterName) {
+    filterStates[filterName] = !filterStates[filterName];
+    $("#" + filterName).prop("checked", filterStates[filterName]);
+    // Uncheck other filters if the current filter is checked
+    if (filterStates[filterName]) {
+      for (const key in filterStates) {
+        if (key !== filterName) {
+          filterStates[key] = false;
+          $("#" + key).prop("checked", false);
         }
-      },
-      error: function (error) {
-        console.error('Error:', error);
-        // Show error message
-        alert('Error adding device.');
       }
+    }
+  }
+  // Click event handlers for radio buttons
+  $("#assignedFilter").click(function () {
+    toggleFilter("assignedFilter");
+  });
+  $("#unassignedFilter").click(function () {
+    toggleFilter("unassignedFilter");
+  });
+  $("#repairFilter").click(function () {
+    toggleFilter("repairFilter");
+  });
+
+
+  function showAddDevice() {
+
+    var heading = document.querySelector(".centered-container");
+
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+
+    var addDeviceContainer3 = document.querySelector(".container.Add");
+
+    if (addDeviceContainer) {
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+
+      if (displayStyle3 === "none") {
+
+        // If the element is hidden, show it
+
+        addDeviceContainer.style.display = "none";
+
+        addDeviceContainer1.style.display = "none";
+
+        addDeviceContainer2.style.display = "none";
+
+        addDeviceContainer3.style.display = "block";
+
+        heading.style.display = "none";
+
+      } else {
+
+        // If the element is visible, hide it
+
+        addDeviceContainer3.style.display = "none";
+
+        heading.style.display = "";
+
+      }
+
+    } else {
+
+      addDeviceContainer3.style.display = "none";
+
+      heading.style.display = "";
+
+    }
+
+  }
+
+  function showAssign() {
+
+    var heading = document.querySelector(".centered-container");
+
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+
+    var addDeviceContainer3 = document.querySelector(".container.Add");
+
+    if (addDeviceContainer) {
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+
+      if (displayStyle2 === "none") {
+
+        // If the element is hidden, show it
+
+        addDeviceContainer.style.display = "none";
+
+        addDeviceContainer1.style.display = "none";
+
+        addDeviceContainer3.style.display = "none";
+
+        addDeviceContainer2.style.display = "block";
+
+        heading.style.display = "none";
+
+      } else {
+
+        // If the element is visible, hide it
+
+        addDeviceContainer2.style.display = "none";
+
+        heading.style.display = "";
+
+      }
+
+    } else {
+
+      addDeviceContainer2.style.display = "none";
+
+      heading.style.display = "";
+
+    }
+
+  }
+
+  function DeviceStatus() {
+
+    var heading = document.querySelector(".centered-container");
+
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+
+    var addDeviceContainer3 = document.querySelector(".container.Add");
+
+    if (addDeviceContainer) {
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+
+      if (displayStyle1 === "none") {
+
+        // If the element is hidden, show it
+
+        addDeviceContainer.style.display = "none";
+
+        addDeviceContainer2.style.display = "none";
+
+        addDeviceContainer3.style.display = "none";
+
+        addDeviceContainer1.style.display = "block";
+
+        heading.style.display = "none";
+
+      } else {
+
+        // If the element is visible, hide it
+
+        addDeviceContainer1.style.display = "none";
+
+        heading.style.display = "";
+
+      }
+
+    } else {
+
+      addDeviceContainer1.style.display = "none";
+
+      heading.style.display = "";
+
+    }
+
+  }
+
+  function showUsers() {
+
+    var heading = document.querySelector(".centered-container");
+
+    var addDeviceContainer = document.querySelector(".container.UserStatus");
+
+    var addDeviceContainer1 = document.querySelector(".container.DeviceStatus");
+
+    var addDeviceContainer2 = document.querySelector(".container-fluid.AssignDevice");
+
+    var addDeviceContainer3 = document.querySelector(".container.Add");
+
+    if (addDeviceContainer) {
+
+      var displayStyle = window.getComputedStyle(addDeviceContainer).display;
+
+      var displayStyle1 = window.getComputedStyle(addDeviceContainer1).display;
+
+      var displayStyle2 = window.getComputedStyle(addDeviceContainer2).display;
+
+      var displayStyle3 = window.getComputedStyle(addDeviceContainer3).display;
+
+      if (displayStyle === "none") {
+
+        // If the element is hidden, show it
+
+        addDeviceContainer.style.display = "block";
+
+        addDeviceContainer1.style.display = "none";
+
+        addDeviceContainer2.style.display = "none";
+
+        addDeviceContainer3.style.display = "none";
+
+        heading.style.display = "none";
+
+      } else {
+
+        // If the element is visible, hide it
+
+        addDeviceContainer.style.display = "none";
+
+        heading.style.display = "";
+
+      }
+
+    } else {
+
+      addDeviceContainer.style.display = "none";
+
+      heading.style.display = "";
+
+    }
+
+  }
+
+  function addDevice() {
+
+    const deviceType = $('#deviceType').val();
+
+    const count = parseInt($('#count').val());
+
+    const specifications = $('#specifications').val();
+
+    const data = { deviceType, count, specifications };
+
+    // Make the POST request using jQuery's $.ajax method
+
+    $.ajax({
+
+      url: '/Home/Admin',
+
+      method: 'post',
+
+      contentType: 'application/json',
+
+      data: JSON.stringify(data),
+
+      success: function (result) {
+
+        if (result.success) {
+
+          // Show success message
+
+          alert('Device and Inventory added successfully.');
+
+          // Optionally, you can reset the form fields after a successful request
+
+          $('#deviceType').val('');
+
+          $('#count').val('');
+
+          $('#specifications').val('');
+
+          window.location.href = '/Home/Admin'
+
+        } else {
+
+          // Show error messageg
+
+          alert('Error: ' + result.message);
+
+        }
+
+      },
+
+      error: function (error) {
+
+        console.error('Error:', error);
+
+        // Show error message
+
+        alert('Error adding device.');
+
+      }
+
     });
   }
+
   function showDevices() {
+    var assignedFilter = $("#assignedFilter").prop("checked");
+    var unassignedFilter = $("#unassignedFilter").prop("checked");
+    var repairFilter = $("#repairFilter").prop("checked");
+    var deviceType = $("#deviceTypeInput").val().toLowerCase(); // Get the entered device type in lowercase
+
+    // Decide which API to call based on the selected filter and device_type
+    var apiEndpoint = "/Home/Admin/ShowDevices"; // Default API for all devices
+    if (assignedFilter) {
+      if (deviceType) {
+        apiEndpoint = "/Home/Admin/ShowAssignedDevicesByType?deviceType=" + encodeURIComponent(deviceType);
+      } else {
+        apiEndpoint = "/Home/Admin/ShowAssignedDevices";
+      }
+    } else if (unassignedFilter) {
+      if (deviceType) {
+        apiEndpoint = "/Home/Admin/ShowUnassignedDevicesByType?deviceType=" + encodeURIComponent(deviceType);
+      } else {
+        apiEndpoint = "/Home/Admin/ShowUnassignedDevices";
+      }
+    } else if (repairFilter) {
+      if (deviceType) {
+        apiEndpoint = "/Home/Admin/ShowRepairDevicesByType?deviceType=" + encodeURIComponent(deviceType);
+      } else {
+        apiEndpoint = "/Home/Admin/ShowRepairDevices";
+      }
+    } else if (deviceType) {
+      // If a device type is entered, call the API to fetch devices by type
+      apiEndpoint = "/Home/Admin/ShowDevicesByType?deviceType=" + encodeURIComponent(deviceType);
+    }
+
     $.ajax({
-      url: "/Home/Admin/ShowDevices",
+      url: apiEndpoint,
       method: "GET",
       dataType: "json",
       success: function (response) {
-        console.log("Response from server:", response); // Check the response in the console
+        console.log(response);
+        var deviceListContainer = $("#deviceList");
+        deviceListContainer.empty();
+
         if (response && response.length > 0) {
-          var deviceListContainer = $("#deviceList");
-          deviceListContainer.empty();
+          // Loop through the devices and create table rows for each device
           $.each(response, function (index, device) {
             var tableRow = $("<tr>");
-            console.log(device);
-            var deviceTypeCell = $("<td>").text(device.deviceType);
+            var deviceNameCell = $("<td>").text(device.deviceType);
             var deviceSpecificationCell = $("<td>").text(device.specification);
             var deviceIdCell = $("<td>").text(device.inventoryId);
-            var deviceSrCell = $("<td>").text(device.serialNo);
-            tableRow.append(deviceTypeCell, deviceSpecificationCell, deviceIdCell, deviceSrCell);
+            var deviceSerialNoCell = $("<td>").text(device.serialNo);
+            tableRow.append(deviceNameCell, deviceSpecificationCell, deviceIdCell, deviceSerialNoCell);
             deviceListContainer.append(tableRow);
           });
           // Show the table when devices are available
           $("#deviceTable").show();
         } else {
-          $("#deviceList").html('<tr><td colspan="2">No devices found.</td></tr>');
+          $("#deviceList").html('<tr><td colspan="4">No devices found.</td></tr>');
+          $("#deviceTable").hide();
         }
       },
       error: function (error) {
         console.error("Error fetching devices:", error);
-      }
+      },
     });
   }
+
+
+
 
 
   function assignDeviceToEmployee() {
+
     const empCode = parseInt($('#empCode').val());
+
     const id = parseInt($('#id').val());
+
     const data = { empCode, id };
+
     console.log(data);
 
+
+
     // Make the POST request using jQuery's $.ajax method
+
     $.ajax({
+
       url: '/Home/Admin/Assigned',
+
       method: 'post',
+
       contentType: 'application/json',
+
       data: JSON.stringify(data),
+
       success: function (result) {
+
         // Show success message
+
         alert('Device assigned successfully.');
+
         // Optionally, you can reset the form fields after a successful request
+
         $('#empCode').val('');
+
         $('#id').val('');
+
         // Optionally, you can reload the table of assigned devices here
+
         // to reflect the updated status
+
       },
+
       error: function (error) {
+
         console.error('Error:', error);
+
         // Show error message
+
         alert('Error assigning device.');
+
       }
+
     });
+
   }
+
+
+
 
 
   function getAssignedDevices() {
-  var empCode = parseInt($("#empCodeInput").val());
-  if (isNaN(empCode)) {
-    alert("Please enter a valid Employee Code.");
-    return;
-  }
-  $.ajax({
-    url: `/Home/Admin/GetAssignedDevices/${empCode}`,
-    method: "GET",
-    dataType: "json",
-    success: function (response) {
-      console.log("Response from server:", response); // Check the response in the console
-      var assignedDevicesList = $("#assignedDevicesList");
-      assignedDevicesList.empty();
-      if (response && response.length > 0) {
-        // Loop through the assigned devices and create table rows for each device
-        $.each(response, function (index, device) {
-          var tableRow = $("<tr>");
-          var deviceTypeCell = $("<td>").text(device.deviceType); // Corrected property name
-          var specificationsCell = $("<td>").text(device.specifications);
-          var inventoryIdCell = $("<td>").text(device.inventoryId); // Corrected property name
-          var serialNoCell = $("<td>").text(device.serialNo);
-          tableRow.append(deviceTypeCell, specificationsCell, inventoryIdCell, serialNoCell);
-          assignedDevicesList.append(tableRow);
-        });
-        // Show the table when assigned devices are available
-        $("#assignedDevicesTable").show();
-      } else {
-        // Show a message when no assigned devices are available
-        assignedDevicesList.html('<tr><td colspan="4">No assigned devices found for the given Employee Code.</td></tr>');
-        $("#assignedDevicesTable").show();
-      }
-    },
-    error: function (error) {
-      console.error("Error fetching assigned devices:", error);
-      // Show an error message
-      alert("Error fetching assigned devices.");
+
+    var empCode = parseInt($("#empCodeInput").val());
+
+    if (isNaN(empCode)) {
+
+      alert("Please enter a valid Employee Code.");
+
+      return;
+
     }
-  });
-}
+
+    $.ajax({
+
+      url: `/Home/Admin/GetAssignedDevices/${empCode}`,
+
+      method: "GET",
+
+      dataType: "json",
+
+      success: function (response) {
+
+        console.log("Response from server:", response); // Check the response in the console
+
+        var assignedDevicesList = $("#assignedDevicesList");
+
+        assignedDevicesList.empty();
+
+        if (response && response.length > 0) {
+
+          // Loop through the assigned devices and create table rows for each device
+
+          $.each(response, function (index, device) {
+
+            var tableRow = $("<tr>");
+
+            var deviceTypeCell = $("<td>").text(device.deviceType); // Corrected property name
+
+            var specificationsCell = $("<td>").text(device.specifications);
+
+            var inventoryIdCell = $("<td>").text(device.inventoryId); // Corrected property name
+
+            var serialNoCell = $("<td>").text(device.serialNo);
+
+            tableRow.append(deviceTypeCell, specificationsCell, inventoryIdCell, serialNoCell);
+
+            assignedDevicesList.append(tableRow);
+
+          });
+
+          // Show the table when assigned devices are available
+
+          $("#assignedDevicesTable").show();
+
+        } else {
+
+          // Show a message when no assigned devices are available
+
+          assignedDevicesList.html('<tr><td colspan="4">No assigned devices found for the given Employee Code.</td></tr>');
+
+          $("#assignedDevicesTable").show();
+
+        }
+
+      },
+
+      error: function (error) {
+
+        console.error("Error fetching assigned devices:", error);
+
+        // Show an error message
+
+        alert("Error fetching assigned devices.");
+
+      }
+
+    });
+
+  }
+
 // Call the function when the page loads
+    function searchDevices() {
+        const searchKeyword = document.getElementById("deviceType").value;
+        // Make an AJAX request to fetch the list of devices based on the search keyword
+        fetch(`/Home/test/devices?search=${encodeURIComponent(searchKeyword)}`)
+            .then(response => response.json())
+            .then(data => {
+                const dataList = document.getElementById("devices");
+                dataList.innerHTML = ""; // Clear the existing list
+                console.log(data);
+                // Populate the datalist with the fetched devices
+                data.forEach(device => {
+                    const option = document.createElement("option");
+                    option.value = device; // Replace 'deviceName' with the appropriate property from your database
+                    dataList.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching devices:", error);
+            });
+    }
+
 
 </script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
