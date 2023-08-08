@@ -502,6 +502,29 @@
 
 </script>
 
+
+
+  <!-- Modal Alert -->
+  <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertModalLabel">Alert</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="alertMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div class="area"></div>
 
 <nav class="main-menu">
@@ -661,8 +684,6 @@
 
 
 
-
-
 <!-- Assign Device -->
 
 <div class="container-fluid AssignDevice" style="width:400px;">
@@ -675,21 +696,30 @@
 
       <label for="empCode">User ID<span class="text-danger"> *</span></label>
 
-      <input type="number" id="empCode" name="empCode" placeholder="Enter Employee Id" required class="form-control">
+      <input type="number" id="empCode" name="empCode" placeholder="Enter Employee Id" required class="form-control" oninput="searchEmployee1()" list="employyes1" autocomplete="off">
+      <datalist id="employyes1">
 
+      <!-- The list of devices will be populated dynamically -->
+
+      </datalist>
     </div>
 
     <div class="form-group mb-4">
 
       <label for="id">Serial Id<span class="text-danger"> *</span></label>
 
-      <input type="number" id="id" name="id" placeholder="Enter Serail_no/Inventory ID" required class="form-control">
+      <input type="number" id="id" name="id" placeholder="Enter Serail_no/Inventory ID" required class="form-control" oninput="searchspecs()" list="speci">
+      <datalist id="speci">
+
+    <!-- The list of devices will be populated dynamically -->
+
+      </datalist>
 
     </div>
 
     <div class="d-flex justify-content-center">
 
-      <button type="button" class="but" onclick="assignDeviceToEmployee()">Assign Device</button>
+      <button type="button" class="but btn btn-warning" onclick="assignDeviceToEmployee(); ">Assign Device</button>
 
     </div>
 
@@ -697,10 +727,12 @@
 
 </div>
 
+  
 
 
 
 
+<!--Device Status-->
 <div class="container DeviceStatus mb-5">
 
   <div class="row justify-content-center">
@@ -711,8 +743,12 @@
 
       <div class="input-group mb-3">
 
-        <input type="text" class="form-control" placeholder="Search for devices" id="deviceTypeInput">
+        <input type="text" class="form-control" placeholder="Search for devices" id="deviceTypeInput" required list="devices1" oninput="searchDevices1()" autocomplete="off">
+        <datalist id="devices1">
 
+            <!-- The list of devices will be populated dynamically -->
+
+        </datalist>
       </div>
 
       <div class="d-flex justify-content-center mb-3"> <!-- Center align the filters -->
@@ -778,11 +814,6 @@
 </div>
 
 
-
-
-
-
-
 <!-- User status -->
 
 <div class="container UserStatus ">
@@ -795,8 +826,12 @@
 
       <div class="input-group mb-3">
 
-        <input type="text" class="form-control" id="empCodeInput" placeholder="Enter UserId">
+        <input type="text" class="form-control" id="empCodeInput" placeholder="Enter UserId" oninput="searchEmployee()" list="employyes" autocomplete="off">
+                <datalist id="employyes">
 
+                    <!-- The list of devices will be populated dynamically -->
+
+                </datalist>
       </div>
 
       <div class="text-center">
@@ -841,6 +876,16 @@
 
 <script>
 
+  function showAlert(message) {
+  const alertMessage = document.getElementById('alertMessage');
+  alertMessage.textContent = message;
+  
+  $('#alertModal').modal('show');
+}
+
+function hideModal() {
+      $('#alertModal').modal('hide');
+    }
 
   var filterStates = {
     assignedFilter: false,
@@ -1099,14 +1144,21 @@
 
   function addDevice() {
 
+    event.preventDefault();
+
     const deviceType = $('#deviceType').val();
 
     const count = parseInt($('#count').val());
 
     const specifications = $('#specifications').val();
 
-    const data = { deviceType, count, specifications };
+     
+    if (!deviceType || isNaN(count) || !specifications) {
+      showAlert("Please fill in all the fields.");
+      return;
+    }
 
+    const data = { deviceType, count, specifications };
     // Make the POST request using jQuery's $.ajax method
 
     $.ajax({
@@ -1124,8 +1176,7 @@
         if (result.success) {
 
           // Show success message
-
-          alert('Device and Inventory added successfully.');
+          showAlert("Device added to inventory successfull. ")
 
           // Optionally, you can reset the form fields after a successful request
 
@@ -1135,13 +1186,13 @@
 
           $('#specifications').val('');
 
-          window.location.href = '/Home/Admin'
+         
 
         } else {
 
           // Show error messageg
 
-          alert('Error: ' + result.message);
+          showAlert('Error: ' + result.message);
 
         }
 
@@ -1153,7 +1204,7 @@
 
         // Show error message
 
-        alert('Error adding device.');
+        showAlert('Error adding device.');
 
       }
 
@@ -1255,8 +1306,7 @@
       success: function (result) {
 
         // Show success message
-
-        alert('Device assigned successfully.');
+        showAlert("Device Assigned. ")
 
         // Optionally, you can reset the form fields after a successful request
 
@@ -1276,7 +1326,7 @@
 
         // Show error message
 
-        alert('Error assigning device.');
+        showAlert('Error assigning device.');
 
       }
 
@@ -1294,7 +1344,7 @@
 
     if (isNaN(empCode)) {
 
-      alert("Please enter a valid Employee Code.");
+      showAlert("Please enter a valid Employee Code.");
 
       return;
 
@@ -1360,7 +1410,7 @@
 
         // Show an error message
 
-        alert("Error fetching assigned devices.");
+        showAlert("Error fetching assigned devices.");
 
       }
 
@@ -1389,7 +1439,213 @@
                 console.error("Error fetching devices:", error);
             });
     }
+     function searchDevices1() {
 
+        const searchKeyword = document.getElementById("deviceTypeInput").value;
+
+ 
+
+        // Make an AJAX request to fetch the list of devices based on the search keyword
+
+        fetch(`/Home/test/devices?search=${encodeURIComponent(searchKeyword)}`)
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const dataList = document.getElementById("devices1");
+
+                dataList.innerHTML = ""; // Clear the existing list
+
+               
+
+                console.log(data);
+
+ 
+
+                // Populate the datalist with the fetched devices
+
+                data.forEach(device => {
+
+                    const option = document.createElement("option");
+
+                    option.value = device; // Replace 'deviceName' with the appropriate property from your database
+
+                    dataList.appendChild(option);
+
+                });
+
+            })
+
+            .catch(error => {
+
+                console.error("Error fetching devices:", error);
+
+            });
+
+    }
+
+function searchEmployee() {
+
+        const searchKeyword = document.getElementById("empCodeInput").value;
+
+ 
+
+        // Make an AJAX request to fetch the list of devices based on the search keyword
+
+        fetch(`/Home/test/employee?search=${encodeURIComponent(searchKeyword)}`)
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const dataList = document.getElementById("employyes");
+
+                dataList.innerHTML = ""; // Clear the existing list
+
+               
+
+                console.log(data);
+
+ 
+
+                // Populate the datalist with the fetched devices
+
+                data.forEach(device => {
+
+                    var option = document.createElement("option");
+
+                    option.value = device.emp_Code;
+
+                option.textContent = device.emp_Name;
+
+                 dataList.appendChild(option);
+
+                });
+
+            })
+
+            .catch(error => {
+
+                console.error("Error fetching devices:", error);
+
+            });
+
+            @* const option = document.createElement("option");
+
+                    option.value = device; // Replace 'deviceName' with the appropriate property from your database
+
+                    dataList.appendChild(option); *@
+
+    }
+
+    function searchEmployee1() {
+
+        const searchKeyword = document.getElementById("empCode").value;
+
+ 
+
+        // Make an AJAX request to fetch the list of devices based on the search keyword
+
+        fetch(`/Home/test/employee?search=${encodeURIComponent(searchKeyword)}`)
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const dataList = document.getElementById("employyes1");
+
+                dataList.innerHTML = ""; // Clear the existing list
+
+               
+
+                console.log(data);
+
+ 
+
+                // Populate the datalist with the fetched devices
+
+                data.forEach(device => {
+
+                    var option = document.createElement("option");
+
+                    option.value = device.emp_Code;
+
+                option.textContent = device.emp_Name;
+
+                 dataList.appendChild(option);
+
+                });
+
+            })
+
+            .catch(error => {
+
+                console.error("Error fetching devices:", error);
+
+            });
+
+            @* const option = document.createElement("option");
+
+                    option.value = device; // Replace 'deviceName' with the appropriate property from your database
+
+                    dataList.appendChild(option); *@
+
+    }
+
+    function searchspecs() {
+
+        const searchKeyword = document.getElementById("id").value;
+
+ 
+
+        // Make an AJAX request to fetch the list of devices based on the search keyword
+
+        fetch(`/Home/test/specs?search=${encodeURIComponent(searchKeyword)}`)
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const dataList = document.getElementById("speci");
+
+                dataList.innerHTML = ""; // Clear the existing list
+
+               
+
+                console.log(data);
+
+ 
+
+                // Populate the datalist with the fetched devices
+
+                data.forEach(device => {
+
+                    var option = document.createElement("option");
+
+                    option.value = device.iid;
+
+                option.textContent = device.specs;
+
+                 dataList.appendChild(option);
+
+                });
+
+            })
+
+            .catch(error => {
+
+                console.error("Error fetching devices:", error);
+
+            });
+
+            @* const option = document.createElement("option");
+
+                    option.value = device; // Replace 'deviceName' with the appropriate property from your database
+
+                    dataList.appendChild(option); *@
+
+    }
 
 </script>
 

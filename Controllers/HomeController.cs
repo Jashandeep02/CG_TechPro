@@ -325,8 +325,6 @@ namespace final.Controllers
         }
 
  
-
-
         [HttpPost]
         [Route("/Home/Admin/Assigned")]
         public JsonResult AssignDeviceToEmployee([FromBody] AssignDeviceRequest assign)
@@ -428,6 +426,60 @@ namespace final.Controllers
                 .Select(device => device.D_Type)
                 .ToList();
             return Json(matchingDevices);
+        }
+
+
+        [HttpGet]
+        [Route("/Home/test/employee")]
+
+        public ActionResult<IEnumerable<string>> GetEmployees(int search)
+        {
+                if (search==0)
+                {
+                    // If the search keyword is empty or null, return an empty list
+                    return new List<string>();
+                }
+                var matchingEmployees = _context.Employee
+                .Where(employee => employee.Emp_Code >= search)
+                .Select(employee => new EmployeeInfo
+            {
+                Emp_Code = employee.Emp_Code,
+                Emp_Name = employee.Name
+            })
+            .ToList();
+        return Json(matchingEmployees);
+        }
+
+        public class EmployeeInfo
+        {
+        public int Emp_Code { get; set; }
+        public string Emp_Name { get; set; }
+        }
+
+        [HttpGet]
+        [Route("/Home/test/specs")]
+        public ActionResult<IEnumerable<string>> Getspecs(int search)
+            {
+                if (search==0)
+                {
+                    // If the search keyword is empty or null, return an empty list
+                    return new List<string>();
+                }
+                var matchingEmployees = _context.Inventory
+                .Where(employee => employee.Id >= search)
+                .Select(employee => new specs
+            {
+                Iid= employee.Id,
+                Specs = employee.Specifications
+            })
+            .ToList();
+        return Json(matchingEmployees);
+        }
+
+        public class specs
+        {
+            public int Iid { get; set; }
+            public string Specs { get; set; }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
